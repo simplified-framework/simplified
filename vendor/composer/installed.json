@@ -1,65 +1,45 @@
 [
     {
-        "name": "twig/twig",
-        "version": "v1.23.1",
-        "version_normalized": "1.23.1.0",
+        "name": "simplified/framework",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
-            "url": "https://github.com/twigphp/Twig.git",
-            "reference": "d9b6333ae8dd2c8e3fd256e127548def0bc614c6"
+            "url": "https://github.com/simplified-framework/framework.git",
+            "reference": "64941a107426b5afdfcf600af3774954f736d68f"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/twigphp/Twig/zipball/d9b6333ae8dd2c8e3fd256e127548def0bc614c6",
-            "reference": "d9b6333ae8dd2c8e3fd256e127548def0bc614c6",
+            "url": "https://api.github.com/repos/simplified-framework/framework/zipball/64941a107426b5afdfcf600af3774954f736d68f",
+            "reference": "64941a107426b5afdfcf600af3774954f736d68f",
             "shasum": ""
         },
-        "require": {
-            "php": ">=5.2.7"
-        },
-        "require-dev": {
-            "symfony/debug": "~2.7",
-            "symfony/phpunit-bridge": "~2.7"
-        },
-        "time": "2015-11-05 12:49:06",
+        "time": "2015-12-08 20:18:47",
         "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.23-dev"
-            }
-        },
-        "installation-source": "dist",
+        "installation-source": "source",
         "autoload": {
-            "psr-0": {
-                "Twig_": "lib/"
-            }
+            "psr-4": {
+                "Simplified\\Config\\": "config/src/",
+                "Simplified\\Debug\\": "debug/src/",
+                "Simplified\\Core\\": "core/src/",
+                "Simplified\\DBAL\\": "dbal/src/",
+                "Simplified\\Http\\": "http/src/",
+                "Simplified\\Orm\\": "orm/src/"
+            },
+            "files": [
+                "http/src/helper.php"
+            ]
         },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "BSD-3-Clause"
-        ],
         "authors": [
             {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com",
-                "homepage": "http://fabien.potencier.org",
-                "role": "Lead Developer"
-            },
-            {
-                "name": "Armin Ronacher",
-                "email": "armin.ronacher@active-4.com",
-                "role": "Project Founder"
-            },
-            {
-                "name": "Twig Team",
-                "homepage": "http://twig.sensiolabs.org/contributors",
-                "role": "Contributors"
+                "name": "Andreas Bratfisch",
+                "email": "duskman72@gmail.com"
             }
         ],
-        "description": "Twig, the flexible, fast, and secure template language for PHP",
-        "homepage": "http://twig.sensiolabs.org",
-        "keywords": [
-            "templating"
-        ]
+        "description": "Simplified framework module",
+        "support": {
+            "source": "https://github.com/simplified-framework/framework/tree/master",
+            "issues": "https://github.com/simplified-framework/framework/issues"
+        }
     }
 ]

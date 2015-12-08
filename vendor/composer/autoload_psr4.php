@@ -6,11 +6,11 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Simplified\\Orm\\' => array($vendorDir . '/simplified/orm/src'),
-    'Simplified\\Http\\' => array($vendorDir . '/simplified/http/src'),
-    'Simplified\\Debug\\' => array($vendorDir . '/simplified/debug/src'),
-    'Simplified\\DBAL\\' => array($vendorDir . '/simplified/dbal/src'),
-    'Simplified\\Core\\' => array($vendorDir . '/simplified/core/src'),
-    'Simplified\\Config\\' => array($vendorDir . '/simplified/config/src'),
+    'Simplified\\Orm\\' => array($vendorDir . '/simplified/framework/orm/src'),
+    'Simplified\\Http\\' => array($vendorDir . '/simplified/framework/http/src'),
+    'Simplified\\Debug\\' => array($vendorDir . '/simplified/framework/debug/src'),
+    'Simplified\\DBAL\\' => array($vendorDir . '/simplified/framework/dbal/src'),
+    'Simplified\\Core\\' => array($vendorDir . '/simplified/framework/core/src'),
+    'Simplified\\Config\\' => array($vendorDir . '/simplified/framework/config/src'),
     'App\\' => array($baseDir . '/app'),
 );
