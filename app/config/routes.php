@@ -2,8 +2,8 @@
 
 use Simplified\Http\Route;
 
-Route::get("/", function(\Simplified\Http\Request $req){
-    print "default route called";
+Route::get("/{id}", function(\Simplified\Http\Request $req, $id){
+    var_dump($id);
 });
 
 Route::get("/{module}/abc/{id}", array('as' => 'meine.route', 'uses' => 'Controller@newIndex'))

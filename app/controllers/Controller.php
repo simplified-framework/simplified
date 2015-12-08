@@ -2,8 +2,10 @@
 
 namespace App\Controllers;
 
+use Simplified\Http\Request;
+
 class Controller {
-    public function newIndex() {
-        print "Here we go";
+    public function newIndex(Request $req, $arg1, $arg2) {
+        print_r($req);
     }
 }
