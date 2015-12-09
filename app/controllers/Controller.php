@@ -6,6 +6,6 @@ use Simplified\Http\Request;
 
 class Controller {
     public function newIndex(Request $req, $arg1, $arg2) {
-        print route("meine.route");
+        print route("meine.route", array("module" => "gsdf", "id" => "44"));
     }
 }
