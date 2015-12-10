@@ -2,11 +2,12 @@
 
 namespace App\Controllers;
 
+use Simplified\Core\Lang;
 use Simplified\Http\Request;
 
-class Controllerf {
+class Controller {
     public function newIndex(Request $req, $arg1, $arg2) {
+        print Lang::get('globals.hello');
         print "<p>Hello, is printed output</p>";
-        return "<p>" . route("meine.route", array("module" => "gsdf", "id" => "44")) . "</p>";
     }
 }
