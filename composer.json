@@ -8,7 +8,8 @@
         }
     ],
     "require": {
-		"simplified/framework": "dev-master"
+		"simplified/framework": "dev-master",
+        "mrclay/minify":"*"
     },
 	"repositories": [
         {

@@ -4,8 +4,9 @@ namespace App\Controllers;
 
 use Simplified\Http\Request;
 
-class Controller {
+class Controllerf {
     public function newIndex(Request $req, $arg1, $arg2) {
-        print route("meine.route", array("module" => "gsdf", "id" => "44"));
+        print "<p>Hello, is printed output</p>";
+        return "<p>" . route("meine.route", array("module" => "gsdf", "id" => "44")) . "</p>";
     }
 }

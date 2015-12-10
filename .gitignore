@@ -4,5 +4,5 @@
 /.buildpath
 /composer.lock
 /composer.phar
-/vendor/simplified
+/vendor
 *.zip
