@@ -1,0 +1,8 @@
+{
+	"dependencies" : {
+		"bower":"~1.6.x",
+		"gulp": "~3.9.x",
+		"gulp-notify":"~2.2.x",
+		"gulp-sass":"~2.x"		
+	}
+}

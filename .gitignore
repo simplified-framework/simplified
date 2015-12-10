@@ -2,7 +2,9 @@
 /Simplified
 /.idea
 /.buildpath
+/.project
 /composer.lock
 /composer.phar
 /vendor/simplified
+/node_modules
 *.zip
