@@ -6,15 +6,15 @@
         "source": {
             "type": "git",
             "url": "https://github.com/simplified-framework/framework.git",
-            "reference": "575018c089aa9fe9cf164d5cca7e6aed52b876a9"
+            "reference": "10ef58caee2c60f20b972989db92f638852d0ce4"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/simplified-framework/framework/zipball/575018c089aa9fe9cf164d5cca7e6aed52b876a9",
-            "reference": "575018c089aa9fe9cf164d5cca7e6aed52b876a9",
+            "url": "https://api.github.com/repos/simplified-framework/framework/zipball/10ef58caee2c60f20b972989db92f638852d0ce4",
+            "reference": "10ef58caee2c60f20b972989db92f638852d0ce4",
             "shasum": ""
         },
-        "time": "2015-12-11 18:46:51",
+        "time": "2015-12-11 18:54:02",
         "type": "library",
         "installation-source": "source",
         "autoload": {

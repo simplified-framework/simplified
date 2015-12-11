@@ -7,4 +7,5 @@
 /composer.phar
 /vendor/simplified
 /node_modules
+/public/css/*css
 *.zip
