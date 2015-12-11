@@ -2,7 +2,11 @@
 	"dependencies" : {
 		"bower":"~1.6.x",
 		"gulp": "~3.9.x",
-		"gulp-notify":"~2.2.x",
-		"gulp-sass":"~2.x"		
+		"gulp-notify":"~2.x",
+		"gulp-sass":"~2.x",
+		"gulp-less":"2.x",
+		"gulp-util":"~2.x",
+		"gulp-watch":"4.3.x",
+		"gulp-copy":"0.0.x"
 	}
 }

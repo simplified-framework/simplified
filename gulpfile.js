@@ -9,5 +9,5 @@ gulp.task('default', function () {
 		style: 'expanded'
     }))
     .pipe(gulp.dest('public/css'))
-	.pipe(notify({message:"finished"}))
+	.pipe(notify({message:"message",title:"GULP TITLE"}))
 });
