@@ -1,11 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Andreas
- * Date: 10.12.2015
- * Time: 19:16
- */
 
 return [
-    'hello' => 'Hallo Welt!'
+    'hello1' => 'Hallo :name (1)',
+    'hello2' => 'Hallo :name (2)',
 ];
