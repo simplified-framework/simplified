@@ -1,0 +1,14 @@
+$primary-color: #333;
+
+body {
+	color: $primary-color;
+}
+
+.clearfix {
+	clear: both; 
+	float: none;
+	display: block;
+	height: 0px;
+	line-height: 0px;
+	font-size: 0px;
+}
