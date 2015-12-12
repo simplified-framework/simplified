@@ -2,7 +2,7 @@
 	"name": "app-name",
 	"version": "0.0.1",
 	"dependencies": {
-		"bootstrap": "~3.3.x",
+		"bootstrap-sass": "~3.3.x",
 		"jquery": "~1.9.x"
 	}
 }
