@@ -16,6 +16,7 @@ class Controller {
         </head>
         <body>
             <a href="#" class="btn btn-success">Test Button</a>
+            <p>Here we are</p>
         </body>
         </html>
         ';
