@@ -7,5 +7,6 @@
 /composer.phar
 /app/resources/vendor
 /node_modules
-/public/css/*css
+/public/css
+/public/js
 *.zip
