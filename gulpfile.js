@@ -1,7 +1,7 @@
 var gulp = require('gulp');  
 var sass = require('gulp-sass');
 var watch = require('gulp-watch');
-var copy = require('gulp-copy');
+var notify = require('gulp-notify');
 
 /*
 var simplified = new function() {
@@ -32,8 +32,11 @@ gulp.task('scripts', function(){
 
 gulp.task('sass', function(){
     gulp.src('./app/resources/scss/**/*.scss')
-        .pipe(sass({includePath:'./app/resources/vendor'}))
-        .pipe(gulp.dest('public/css'));
+        .pipe(sass({includePath:'./app/resources/vendor'}).on('error', notify.onError(function(err){
+            return {title:'Simplified Build',message:err.message,icon:__dirname + '/icons/error.png'};
+        })))
+        .pipe(gulp.dest('public/css'))
+        .pipe(notify({title:'Simplified Build',message:'Build successfully finished',icon:__dirname + '/icons/finished.png'}));
 });
 
 gulp.task('default', function(){
