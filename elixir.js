@@ -46,7 +46,7 @@ module.exports = function(fn) {
     fn(mix);
 
     gulp.task('clean', function() {
-        del(['public/css','public/js', 'public/fonts']);
+        return del(['public/css','public/js', 'public/fonts']);
     });
 
     gulp.task('build', function(){
@@ -56,9 +56,6 @@ module.exports = function(fn) {
     });
 
     gulp.task('default', function(){
-        runSequence(
-            'clean',
-            'build'
-        );
+        runSequence('clean', 'build');
     });
 };
