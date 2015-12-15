@@ -6,6 +6,7 @@ var del = require('del');
 var runSequence = require('run-sequence');
 
 module.exports = function(fn) {
+    var basepath = "app/resources/";
     var tasks = [];
     var count = 0;
     var mix = new function() {
@@ -13,11 +14,11 @@ module.exports = function(fn) {
             var key = "sass_" + count;
 
             gulp.task(key, function(){
-                gulp.src(file)
+                gulp.src(basepath + file)
                     .pipe(plumber({errorHandler:function(error){
                         notify({title:'Simplified Build',icon:__dirname + '/icons/error.png'}).write(error.message);
                     }}))
-                    .pipe(sass({includePath:'./app/resources/vendor',outputStyle:'compressed'})) // compresseed / expanded
+                    .pipe(sass({includePath:basepath + 'vendor',outputStyle:'compressed'})) // compresseed / expanded
                     .pipe(gulp.dest('public/css'))
                     .pipe(
                         notify({title:'Simplified Build',message:'Build finished',icon:__dirname + '/icons/finished.png',onLast:true})
@@ -33,7 +34,7 @@ module.exports = function(fn) {
             var key = "copy_" + count;
 
             gulp.task(key, function(){
-                gulp.src(src)
+                gulp.src(basepath + src)
                     .pipe(gulp.dest(dst));
             });
             tasks.push(key);
