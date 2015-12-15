@@ -8,13 +8,18 @@
         }
     ],
     "require": {
-		"simplified/framework": "dev-master"
+		"simplified/framework": "dev-master",
+        "simplified/twigbridge":"dev-master"
     },
 	"repositories": [
         {
 			"type":"vcs",
 			"url":"https://github.com/simplified-framework/framework"
-		}
+		},
+        {
+          "type":"vcs",
+          "url":"https://github.com/simplified-framework/twigbridge"
+        }
 	],
     "autoload": {
         "psr-4": {
