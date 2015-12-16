@@ -2,14 +2,6 @@
 	"dependencies" : {
 		"bower":"~1.6.x",
 		"gulp": "~3.9.x",
-		"gulp-notify":"~2.x",
-		"gulp-sass":"~2.x",
-		"gulp-less":"2.x",
-		"gulp-util":"~2.x",
-		"gulp-watch":"~4.3.x",
-		"gulp-plumber":"1.0.x",
-		"del":"~2.2.x",
-		"run-sequence":"~1.1.x",
 		"simplified-build":"~1.0.x"
 	}
 }
