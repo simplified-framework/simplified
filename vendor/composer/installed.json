@@ -1,5 +1,48 @@
 [
     {
+        "name": "simplified/framework",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/simplified-framework/framework.git",
+            "reference": "c0b0e0ebf4f74574205c4958b4205a488312a622"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/simplified-framework/framework/zipball/c0b0e0ebf4f74574205c4958b4205a488312a622",
+            "reference": "c0b0e0ebf4f74574205c4958b4205a488312a622",
+            "shasum": ""
+        },
+        "time": "2015-12-16 17:47:04",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Simplified\\Config\\": "config/src/",
+                "Simplified\\Debug\\": "debug/src/",
+                "Simplified\\Core\\": "core/src/",
+                "Simplified\\DBAL\\": "dbal/src/",
+                "Simplified\\Http\\": "http/src/",
+                "Simplified\\Orm\\": "orm/src/"
+            },
+            "files": [
+                "http/src/helper.php"
+            ]
+        },
+        "authors": [
+            {
+                "name": "Andreas Bratfisch",
+                "email": "duskman72@gmail.com"
+            }
+        ],
+        "description": "Simplified framework module",
+        "support": {
+            "source": "https://github.com/simplified-framework/framework/tree/master",
+            "issues": "https://github.com/simplified-framework/framework/issues"
+        }
+    },
+    {
         "name": "twig/twig",
         "version": "v1.23.1",
         "version_normalized": "1.23.1.0",
@@ -69,18 +112,18 @@
         "source": {
             "type": "git",
             "url": "https://github.com/simplified-framework/twigbridge.git",
-            "reference": "bfa3106a3833200b2cd4f54a27c79172d5ac646e"
+            "reference": "904f9c91c5c958b5ae06a1c2b9b0fd62bb0dbdd9"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/simplified-framework/twigbridge/zipball/bfa3106a3833200b2cd4f54a27c79172d5ac646e",
-            "reference": "bfa3106a3833200b2cd4f54a27c79172d5ac646e",
+            "url": "https://api.github.com/repos/simplified-framework/twigbridge/zipball/904f9c91c5c958b5ae06a1c2b9b0fd62bb0dbdd9",
+            "reference": "904f9c91c5c958b5ae06a1c2b9b0fd62bb0dbdd9",
             "shasum": ""
         },
         "require": {
             "twig/twig": "~1.0"
         },
-        "time": "2015-12-15 21:24:21",
+        "time": "2015-12-16 17:56:27",
         "type": "library",
         "installation-source": "source",
         "autoload": {
@@ -98,49 +141,6 @@
         "support": {
             "source": "https://github.com/simplified-framework/twigbridge/tree/master",
             "issues": "https://github.com/simplified-framework/twigbridge/issues"
-        }
-    },
-    {
-        "name": "simplified/framework",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/simplified-framework/framework.git",
-            "reference": "1507f7386cdb2e2084995690d40d7bb7eb3271b6"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/simplified-framework/framework/zipball/1507f7386cdb2e2084995690d40d7bb7eb3271b6",
-            "reference": "1507f7386cdb2e2084995690d40d7bb7eb3271b6",
-            "shasum": ""
-        },
-        "time": "2015-12-15 21:26:02",
-        "type": "library",
-        "installation-source": "source",
-        "autoload": {
-            "psr-4": {
-                "Simplified\\Config\\": "config/src/",
-                "Simplified\\Debug\\": "debug/src/",
-                "Simplified\\Core\\": "core/src/",
-                "Simplified\\DBAL\\": "dbal/src/",
-                "Simplified\\Http\\": "http/src/",
-                "Simplified\\Orm\\": "orm/src/"
-            },
-            "files": [
-                "http/src/helper.php"
-            ]
-        },
-        "authors": [
-            {
-                "name": "Andreas Bratfisch",
-                "email": "duskman72@gmail.com"
-            }
-        ],
-        "description": "Simplified framework module",
-        "support": {
-            "source": "https://github.com/simplified-framework/framework/tree/master",
-            "issues": "https://github.com/simplified-framework/framework/issues"
         }
     }
 ]

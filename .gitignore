@@ -1,11 +1,13 @@
 /Bundle
 /Simplified
+/simplified-build
 /.idea
 /.buildpath
 /.project
 /composer.lock
 /composer.phar
 /app/resources/vendor
+/app/cache
 /node_modules
 /public/*
 !/public/.htaccess

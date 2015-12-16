@@ -9,6 +9,7 @@
 		"gulp-watch":"~4.3.x",
 		"gulp-plumber":"1.0.x",
 		"del":"~2.2.x",
-		"run-sequence":"~1.1.x"
+		"run-sequence":"~1.1.x",
+		"simplified-build":"~1.0.x"
 	}
 }

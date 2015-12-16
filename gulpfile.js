@@ -1,6 +1,6 @@
-var elixir = require('./elixir');
+var build = require('simplified-build');
 
-elixir(function(mix) {
+build(function(mix) {
     mix
         .sass("assets/scss/**/*.scss")
         .copy('vendor/jquery/jquery.min.js', 'public/js')
