@@ -8,7 +8,7 @@ use Simplified\Http\Request;
 use Simplified\Http\Response;
 
 class Controller {
-    public function newIndex(Request $req, $arg1, $arg2) {
+    public function newIndex(Request $req) {
         $v = new View();
         $content = $v->render('index.twig');
 

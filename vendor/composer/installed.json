@@ -69,18 +69,18 @@
         "source": {
             "type": "git",
             "url": "https://github.com/simplified-framework/twigbridge.git",
-            "reference": "a01be9ddfea351f65a4e3204fbec5a20dfcd292b"
+            "reference": "b000d6a970042b6d79125208a9eb0d4af99e7328"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/simplified-framework/twigbridge/zipball/a01be9ddfea351f65a4e3204fbec5a20dfcd292b",
-            "reference": "a01be9ddfea351f65a4e3204fbec5a20dfcd292b",
+            "url": "https://api.github.com/repos/simplified-framework/twigbridge/zipball/b000d6a970042b6d79125208a9eb0d4af99e7328",
+            "reference": "b000d6a970042b6d79125208a9eb0d4af99e7328",
             "shasum": ""
         },
         "require": {
             "twig/twig": "~1.0"
         },
-        "time": "2015-12-17 17:57:54",
+        "time": "2015-12-18 17:54:29",
         "type": "library",
         "installation-source": "source",
         "autoload": {
@@ -107,15 +107,15 @@
         "source": {
             "type": "git",
             "url": "https://github.com/simplified-framework/framework.git",
-            "reference": "a323becf83fb82fd695113a3db8b7c30dced05be"
+            "reference": "056ebeada5b075d32e9194a90b57ad0ffa0c28b4"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/simplified-framework/framework/zipball/a323becf83fb82fd695113a3db8b7c30dced05be",
-            "reference": "a323becf83fb82fd695113a3db8b7c30dced05be",
+            "url": "https://api.github.com/repos/simplified-framework/framework/zipball/056ebeada5b075d32e9194a90b57ad0ffa0c28b4",
+            "reference": "056ebeada5b075d32e9194a90b57ad0ffa0c28b4",
             "shasum": ""
         },
-        "time": "2015-12-17 19:12:55",
+        "time": "2015-12-18 18:00:44",
         "type": "library",
         "installation-source": "source",
         "autoload": {
