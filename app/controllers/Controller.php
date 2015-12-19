@@ -2,16 +2,13 @@
 
 namespace App\Controllers;
 
-use Simplified\Core\Lang;
 use Simplified\Core\View;
-use Simplified\Http\Request;
 use Simplified\Http\Response;
 
 class Controller {
-    public function newIndex(Request $req) {
+    public function newIndex() {
         $v = new View();
         $content = $v->render('index.twig');
-
-        (new Response($content, 200))->send();
+        (new Response($content))->send();
     }
 }

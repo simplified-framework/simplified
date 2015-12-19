@@ -101,21 +101,64 @@
         }
     },
     {
+        "name": "psr/log",
+        "version": "1.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-fig/log.git",
+            "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-fig/log/zipball/fe0936ee26643249e916849d48e3a51d5f5e278b",
+            "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b",
+            "shasum": ""
+        },
+        "time": "2012-12-21 11:40:51",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Psr\\Log\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "PHP-FIG",
+                "homepage": "http://www.php-fig.org/"
+            }
+        ],
+        "description": "Common interface for logging libraries",
+        "keywords": [
+            "log",
+            "psr",
+            "psr-3"
+        ]
+    },
+    {
         "name": "simplified/framework",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
             "url": "https://github.com/simplified-framework/framework.git",
-            "reference": "056ebeada5b075d32e9194a90b57ad0ffa0c28b4"
+            "reference": "8d3a59bd1edbb92100cec56eddd32251810bec80"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/simplified-framework/framework/zipball/056ebeada5b075d32e9194a90b57ad0ffa0c28b4",
-            "reference": "056ebeada5b075d32e9194a90b57ad0ffa0c28b4",
+            "url": "https://api.github.com/repos/simplified-framework/framework/zipball/8d3a59bd1edbb92100cec56eddd32251810bec80",
+            "reference": "8d3a59bd1edbb92100cec56eddd32251810bec80",
             "shasum": ""
         },
-        "time": "2015-12-18 18:00:44",
+        "require": {
+            "psr/log": "1.0.x"
+        },
+        "time": "2015-12-19 08:47:05",
         "type": "library",
         "installation-source": "source",
         "autoload": {
@@ -125,7 +168,9 @@
                 "Simplified\\Core\\": "core/src/",
                 "Simplified\\DBAL\\": "dbal/src/",
                 "Simplified\\Http\\": "http/src/",
-                "Simplified\\Orm\\": "orm/src/"
+                "Simplified\\Orm\\": "orm/src/",
+                "Simplified\\Session\\": "session/src/",
+                "Simplified\\Log\\": "log/src"
             },
             "files": [
                 "http/src/helper.php"

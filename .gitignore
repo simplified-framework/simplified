@@ -3,7 +3,7 @@
 /.project
 /composer.lock
 /app/resources/vendor
-/app/storage/cache
+/app/storage
 /node_modules
 /public/*
 !/public/.htaccess

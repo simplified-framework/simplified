@@ -7,7 +7,9 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Simplified\\TwigBridge\\' => array($vendorDir . '/simplified/twigbridge/src'),
+    'Simplified\\Session\\' => array($vendorDir . '/simplified/framework/session/src'),
     'Simplified\\Orm\\' => array($vendorDir . '/simplified/framework/orm/src'),
+    'Simplified\\Log\\' => array($vendorDir . '/simplified/framework/log/src'),
     'Simplified\\Http\\' => array($vendorDir . '/simplified/framework/http/src'),
     'Simplified\\Debug\\' => array($vendorDir . '/simplified/framework/debug/src'),
     'Simplified\\DBAL\\' => array($vendorDir . '/simplified/framework/dbal/src'),

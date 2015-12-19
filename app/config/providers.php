@@ -1,5 +1,6 @@
 <?php
 
 return [
-    'view' => '\\Simplified\\TwigBridge\\TwigProvider'
+    'view' => '\\Simplified\\TwigBridge\\TwigProvider',
+    'session' => '\\Simplified\\Session\\SessionProvider'
 ];
