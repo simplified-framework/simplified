@@ -6,6 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    $vendorDir . '/simplified/framework/http/src/helper.php',
     $vendorDir . '/simplified/html/src/Forms/FormExtension.php',
+    $vendorDir . '/simplified/framework/http/src/helper.php',
 );

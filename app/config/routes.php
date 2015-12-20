@@ -2,5 +2,8 @@
 
 use Simplified\Http\Route;
 
-Route::get("/", 'Controller@newIndex');
+Route::get("/", array(
+    'as' => 'index.default',
+    'uses' => 'Controller@newIndex')
+);
 

@@ -103,54 +103,6 @@
         ]
     },
     {
-        "name": "simplified/framework",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/simplified-framework/framework.git",
-            "reference": "27c104e1ff51e6a8b1b620c4b64d0f02f88a8161"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/simplified-framework/framework/zipball/27c104e1ff51e6a8b1b620c4b64d0f02f88a8161",
-            "reference": "27c104e1ff51e6a8b1b620c4b64d0f02f88a8161",
-            "shasum": ""
-        },
-        "require": {
-            "psr/log": "1.0.x"
-        },
-        "time": "2015-12-19 11:03:46",
-        "type": "library",
-        "installation-source": "source",
-        "autoload": {
-            "psr-4": {
-                "Simplified\\Config\\": "config/src/",
-                "Simplified\\Debug\\": "debug/src/",
-                "Simplified\\Core\\": "core/src/",
-                "Simplified\\DBAL\\": "dbal/src/",
-                "Simplified\\Http\\": "http/src/",
-                "Simplified\\Orm\\": "orm/src/",
-                "Simplified\\Session\\": "session/src/",
-                "Simplified\\Log\\": "log/src"
-            },
-            "files": [
-                "http/src/helper.php"
-            ]
-        },
-        "authors": [
-            {
-                "name": "Andreas Bratfisch",
-                "email": "duskman72@gmail.com"
-            }
-        ],
-        "description": "Simplified framework module",
-        "support": {
-            "source": "https://github.com/simplified-framework/framework/tree/master",
-            "issues": "https://github.com/simplified-framework/framework/issues"
-        }
-    },
-    {
         "name": "simplified/twigbridge",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
@@ -224,6 +176,54 @@
         "support": {
             "source": "https://github.com/simplified-framework/html/tree/master",
             "issues": "https://github.com/simplified-framework/html/issues"
+        }
+    },
+    {
+        "name": "simplified/framework",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/simplified-framework/framework.git",
+            "reference": "50efd736b66f882cd752d601d0b7c7eab4e4aa52"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/simplified-framework/framework/zipball/50efd736b66f882cd752d601d0b7c7eab4e4aa52",
+            "reference": "50efd736b66f882cd752d601d0b7c7eab4e4aa52",
+            "shasum": ""
+        },
+        "require": {
+            "psr/log": "1.0.x"
+        },
+        "time": "2015-12-20 08:13:20",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Simplified\\Config\\": "config/src/",
+                "Simplified\\Debug\\": "debug/src/",
+                "Simplified\\Core\\": "core/src/",
+                "Simplified\\DBAL\\": "dbal/src/",
+                "Simplified\\Http\\": "http/src/",
+                "Simplified\\Orm\\": "orm/src/",
+                "Simplified\\Session\\": "session/src/",
+                "Simplified\\Log\\": "log/src"
+            },
+            "files": [
+                "http/src/helper.php"
+            ]
+        },
+        "authors": [
+            {
+                "name": "Andreas Bratfisch",
+                "email": "duskman72@gmail.com"
+            }
+        ],
+        "description": "Simplified framework module",
+        "support": {
+            "source": "https://github.com/simplified-framework/framework/tree/master",
+            "issues": "https://github.com/simplified-framework/framework/issues"
         }
     }
 ]
