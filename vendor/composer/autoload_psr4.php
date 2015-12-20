@@ -6,6 +6,8 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Symfony\\Polyfill\\Mbstring\\' => array($vendorDir . '/symfony/polyfill-mbstring'),
+    'Symfony\\Component\\Console\\' => array($vendorDir . '/symfony/console'),
     'Simplified\\TwigBridge\\' => array($vendorDir . '/simplified/twigbridge/src'),
     'Simplified\\Session\\' => array($vendorDir . '/simplified/framework/session/src'),
     'Simplified\\Orm\\' => array($vendorDir . '/simplified/framework/orm/src'),
@@ -15,6 +17,7 @@ return array(
     'Simplified\\Debug\\' => array($vendorDir . '/simplified/framework/debug/src'),
     'Simplified\\DBAL\\' => array($vendorDir . '/simplified/framework/dbal/src'),
     'Simplified\\Core\\' => array($vendorDir . '/simplified/framework/core/src'),
+    'Simplified\\Console\\' => array($vendorDir . '/simplified/framework/console/src'),
     'Simplified\\Config\\' => array($vendorDir . '/simplified/framework/config/src'),
     'App\\' => array($baseDir . '/app'),
 );

@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    $vendorDir . '/symfony/polyfill-mbstring/bootstrap.php',
     $vendorDir . '/simplified/html/src/Forms/FormExtension.php',
     $vendorDir . '/simplified/framework/http/src/helper.php',
 );
