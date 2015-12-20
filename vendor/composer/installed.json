@@ -185,18 +185,18 @@
         "source": {
             "type": "git",
             "url": "https://github.com/simplified-framework/framework.git",
-            "reference": "50efd736b66f882cd752d601d0b7c7eab4e4aa52"
+            "reference": "bb7dbff3a77955d5299b24e047904ff566d30895"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/simplified-framework/framework/zipball/50efd736b66f882cd752d601d0b7c7eab4e4aa52",
-            "reference": "50efd736b66f882cd752d601d0b7c7eab4e4aa52",
+            "url": "https://api.github.com/repos/simplified-framework/framework/zipball/bb7dbff3a77955d5299b24e047904ff566d30895",
+            "reference": "bb7dbff3a77955d5299b24e047904ff566d30895",
             "shasum": ""
         },
         "require": {
             "psr/log": "1.0.x"
         },
-        "time": "2015-12-20 08:13:20",
+        "time": "2015-12-20 18:48:23",
         "type": "library",
         "installation-source": "source",
         "autoload": {
