@@ -9,7 +9,8 @@
     ],
     "require": {
 		"simplified/framework": "dev-master",
-        "simplified/twigbridge":"dev-master"
+        "simplified/twigbridge":"dev-master",
+        "simplified/html":"dev-master"
     },
 	"repositories": [
         {
@@ -19,6 +20,10 @@
         {
           "type":"vcs",
           "url":"https://github.com/simplified-framework/twigbridge"
+        },
+        {
+          "type":"vcs",
+          "url":"https://github.com/simplified-framework/html"
         }
 	],
     "autoload": {

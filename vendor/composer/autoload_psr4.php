@@ -11,6 +11,7 @@ return array(
     'Simplified\\Orm\\' => array($vendorDir . '/simplified/framework/orm/src'),
     'Simplified\\Log\\' => array($vendorDir . '/simplified/framework/log/src'),
     'Simplified\\Http\\' => array($vendorDir . '/simplified/framework/http/src'),
+    'Simplified\\Html\\' => array($vendorDir . '/simplified/html/src'),
     'Simplified\\Debug\\' => array($vendorDir . '/simplified/framework/debug/src'),
     'Simplified\\DBAL\\' => array($vendorDir . '/simplified/framework/dbal/src'),
     'Simplified\\Core\\' => array($vendorDir . '/simplified/framework/core/src'),

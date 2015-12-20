@@ -63,44 +63,6 @@
         ]
     },
     {
-        "name": "simplified/twigbridge",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/simplified-framework/twigbridge.git",
-            "reference": "b000d6a970042b6d79125208a9eb0d4af99e7328"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/simplified-framework/twigbridge/zipball/b000d6a970042b6d79125208a9eb0d4af99e7328",
-            "reference": "b000d6a970042b6d79125208a9eb0d4af99e7328",
-            "shasum": ""
-        },
-        "require": {
-            "twig/twig": "~1.0"
-        },
-        "time": "2015-12-18 17:54:29",
-        "type": "library",
-        "installation-source": "source",
-        "autoload": {
-            "psr-4": {
-                "Simplified\\TwigBridge\\": "src/"
-            }
-        },
-        "authors": [
-            {
-                "name": "Andreas Bratfisch",
-                "email": "duskman72@gmail.com"
-            }
-        ],
-        "description": "Simplified twigbridge module",
-        "support": {
-            "source": "https://github.com/simplified-framework/twigbridge/tree/master",
-            "issues": "https://github.com/simplified-framework/twigbridge/issues"
-        }
-    },
-    {
         "name": "psr/log",
         "version": "1.0.0",
         "version_normalized": "1.0.0.0",
@@ -147,18 +109,18 @@
         "source": {
             "type": "git",
             "url": "https://github.com/simplified-framework/framework.git",
-            "reference": "8d3a59bd1edbb92100cec56eddd32251810bec80"
+            "reference": "27c104e1ff51e6a8b1b620c4b64d0f02f88a8161"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/simplified-framework/framework/zipball/8d3a59bd1edbb92100cec56eddd32251810bec80",
-            "reference": "8d3a59bd1edbb92100cec56eddd32251810bec80",
+            "url": "https://api.github.com/repos/simplified-framework/framework/zipball/27c104e1ff51e6a8b1b620c4b64d0f02f88a8161",
+            "reference": "27c104e1ff51e6a8b1b620c4b64d0f02f88a8161",
             "shasum": ""
         },
         "require": {
             "psr/log": "1.0.x"
         },
-        "time": "2015-12-19 08:47:05",
+        "time": "2015-12-19 11:03:46",
         "type": "library",
         "installation-source": "source",
         "autoload": {
@@ -186,6 +148,82 @@
         "support": {
             "source": "https://github.com/simplified-framework/framework/tree/master",
             "issues": "https://github.com/simplified-framework/framework/issues"
+        }
+    },
+    {
+        "name": "simplified/twigbridge",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/simplified-framework/twigbridge.git",
+            "reference": "278c6580a07027cbba42ae0329ab7d830fc858f7"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/simplified-framework/twigbridge/zipball/278c6580a07027cbba42ae0329ab7d830fc858f7",
+            "reference": "278c6580a07027cbba42ae0329ab7d830fc858f7",
+            "shasum": ""
+        },
+        "require": {
+            "twig/twig": "~1.0"
+        },
+        "time": "2015-12-19 20:57:22",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Simplified\\TwigBridge\\": "src/"
+            }
+        },
+        "authors": [
+            {
+                "name": "Andreas Bratfisch",
+                "email": "duskman72@gmail.com"
+            }
+        ],
+        "description": "Simplified twigbridge module",
+        "support": {
+            "source": "https://github.com/simplified-framework/twigbridge/tree/master",
+            "issues": "https://github.com/simplified-framework/twigbridge/issues"
+        }
+    },
+    {
+        "name": "simplified/html",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/simplified-framework/html.git",
+            "reference": "6380f4b6c8def40802b955e697e747acc31fff81"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/simplified-framework/html/zipball/6380f4b6c8def40802b955e697e747acc31fff81",
+            "reference": "6380f4b6c8def40802b955e697e747acc31fff81",
+            "shasum": ""
+        },
+        "time": "2015-12-20 07:54:56",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Simplified\\Html\\": "src/"
+            },
+            "files": [
+                "src/Forms/FormExtension.php"
+            ]
+        },
+        "authors": [
+            {
+                "name": "Andreas Bratfisch",
+                "email": "duskman72@gmail.com"
+            }
+        ],
+        "description": "Simplified html module",
+        "support": {
+            "source": "https://github.com/simplified-framework/html/tree/master",
+            "issues": "https://github.com/simplified-framework/html/issues"
         }
     }
 ]
