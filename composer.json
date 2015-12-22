@@ -1,8 +1,6 @@
 {
     "name": "simplified/simplified",
     "description": "This is project simplified",
-    "minimum-stability": "dev",
-    "prefer-stable":"false",
     "authors": [
         {
             "name": "Andreas Bratfisch",
