@@ -8,9 +8,9 @@
         }
     ],
     "require": {
-		"simplified/framework": "dev-master",
-        "simplified/twigbridge":"dev-master",
-        "simplified/html":"dev-master"
+		"simplified/framework": "dev",
+        "simplified/twigbridge":"dev",
+        "simplified/html":"dev"
     },
 	"repositories": [
         {
