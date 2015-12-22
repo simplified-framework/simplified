@@ -15,15 +15,18 @@
 	"repositories": [
         {
 			"type":"vcs",
-			"url":"https://github.com/simplified-framework/framework"
+			"url":"https://github.com/simplified-framework/framework",
+            "version":"dev-master"
 		},
         {
           "type":"vcs",
-          "url":"https://github.com/simplified-framework/twigbridge"
+          "url":"https://github.com/simplified-framework/twigbridge",
+          "version":"dev-master"
         },
         {
           "type":"vcs",
-          "url":"https://github.com/simplified-framework/html"
+          "url":"https://github.com/simplified-framework/html",
+          "version":"dev-master"
         }
 	],
     "autoload": {
