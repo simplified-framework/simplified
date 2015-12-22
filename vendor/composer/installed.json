@@ -374,12 +374,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/simplified-framework/framework.git",
-            "reference": "9724f1ec8996b77275e3cbde8121189445688b27"
+            "reference": "0d5d39895ab73bae8c1189a855b37337c5a885b6"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/simplified-framework/framework/zipball/9724f1ec8996b77275e3cbde8121189445688b27",
-            "reference": "9724f1ec8996b77275e3cbde8121189445688b27",
+            "url": "https://api.github.com/repos/simplified-framework/framework/zipball/0d5d39895ab73bae8c1189a855b37337c5a885b6",
+            "reference": "0d5d39895ab73bae8c1189a855b37337c5a885b6",
             "shasum": ""
         },
         "require": {
@@ -387,7 +387,7 @@
             "psr/log": "1.0.x",
             "symfony/console": "2.x"
         },
-        "time": "2015-12-21 06:36:55",
+        "time": "2015-12-22 07:03:15",
         "type": "library",
         "installation-source": "source",
         "autoload": {
@@ -395,7 +395,7 @@
                 "Simplified\\Config\\": "config/src/",
                 "Simplified\\Debug\\": "debug/src/",
                 "Simplified\\Core\\": "core/src/",
-                "Simplified\\DBAL\\": "dbal/src/",
+                "Simplified\\Database\\": "database/src/",
                 "Simplified\\Http\\": "http/src/",
                 "Simplified\\Orm\\": "orm/src/",
                 "Simplified\\Session\\": "session/src/",
