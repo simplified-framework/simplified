@@ -9,7 +9,7 @@
         }
     ],
     "require": {
-		"simplified/framework": "dev",
+		"simplified/framework": "dev-master",
         "simplified/twigbridge":"dev",
         "simplified/html":"dev"
     },
