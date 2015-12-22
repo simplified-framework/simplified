@@ -8,25 +8,22 @@
         }
     ],
     "require": {
-		"simplified/framework": "dev-master",
-        "simplified/twigbridge":"dev-master",
-        "simplified/html":"dev-master"
+		"simplified/framework": "dev",
+        "simplified/twigbridge":"dev",
+        "simplified/html":"dev"
     },
 	"repositories": [
         {
 			"type":"vcs",
-			"url":"https://github.com/simplified-framework/framework",
-            "version":"dev-master"
+			"url":"https://github.com/simplified-framework/framework"
 		},
         {
           "type":"vcs",
-          "url":"https://github.com/simplified-framework/twigbridge",
-          "version":"dev-master"
+          "url":"https://github.com/simplified-framework/twigbridge"
         },
         {
           "type":"vcs",
-          "url":"https://github.com/simplified-framework/html",
-          "version":"dev-master"
+          "url":"https://github.com/simplified-framework/html"
         }
 	],
     "autoload": {
