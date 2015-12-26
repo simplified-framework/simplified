@@ -1,6 +1,7 @@
 {
     "name": "simplified/simplified",
     "description": "This is project simplified",
+    "license":"MIT",
     "authors": [
         {
             "name": "Andreas Bratfisch",
@@ -8,9 +9,9 @@
         }
     ],
     "require": {
-		"simplified/framework": "1.1.*",
-        "simplified/twigbridge":"1.1.x",
-        "simplified/html":"1.1.x"
+		"simplified/framework": "1.0.*",
+        "simplified/twigbridge":"1.0.*",
+        "simplified/html":"1.0.*"
     },
     "autoload": {
         "psr-4": {
