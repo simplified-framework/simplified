@@ -8,9 +8,9 @@
         }
     ],
     "require": {
-		"simplified/framework": "1.0.x",
-        "simplified/twigbridge":"1.0.x",
-        "simplified/html":"1.0.x"
+		"simplified/framework": "1.1.*",
+        "simplified/twigbridge":"1.1.x",
+        "simplified/html":"1.1.x"
     },
     "autoload": {
         "psr-4": {
