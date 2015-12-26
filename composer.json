@@ -2,6 +2,7 @@
     "name": "simplified/simplified",
     "description": "This is project simplified",
     "license":"MIT",
+    "version": "1.0.0"
     "authors": [
         {
             "name": "Andreas Bratfisch",
