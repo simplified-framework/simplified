@@ -12,9 +12,17 @@ To install the Simplified framework you need to install (if not already) Compose
     $>sudo mv composer.phar /usr/local/bin/composer 
     $>sudo chmod 775 /usr/local/bin/composer 
 
-If Composer is installed, you can start the Simplified installation process:
+Once Composer is installed, you can start the Simplified installation process:
 
     $>composer create-project simplified/simplified YOUR_DIRECTORY "1.0.*"
+
+###### Simplified on your web server
+The Simplified framework runs at best on apache web servers, here you need to activate the mod_rewrite module
+in the server configuration. If it's activated, you can view your installation on the url http://localhost or
+directly on your web server providers url.
+
+###### What's next?
+At first, you need to know something about your application environment.
 
 There is support for our tool named "Simplified Build" too, look at https://www.npmjs.com/package/simplified-build 
 for the installation and usage.
