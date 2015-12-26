@@ -9,5 +9,5 @@
 !/public/.htaccess
 !/public/favicon.ico
 !/public/index.php
-/vendor/*
+/vendor
 
