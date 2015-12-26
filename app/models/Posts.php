@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-use Simplified\Orm\Model;
+use Simplified\Database\Model;
 
 class Posts extends Model {
 }

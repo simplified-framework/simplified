@@ -374,12 +374,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/simplified-framework/framework.git",
-            "reference": "4de80de0ac4ad425b5187639ad8df613a8a57bed"
+            "reference": "04923cfa2eb5b4c895ef5646c7bbdde647bc5d80"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/simplified-framework/framework/zipball/4de80de0ac4ad425b5187639ad8df613a8a57bed",
-            "reference": "4de80de0ac4ad425b5187639ad8df613a8a57bed",
+            "url": "https://api.github.com/repos/simplified-framework/framework/zipball/04923cfa2eb5b4c895ef5646c7bbdde647bc5d80",
+            "reference": "04923cfa2eb5b4c895ef5646c7bbdde647bc5d80",
             "shasum": ""
         },
         "require": {
@@ -387,7 +387,7 @@
             "psr/log": "1.0.x",
             "symfony/console": "2.x"
         },
-        "time": "2015-12-23 06:38:37",
+        "time": "2015-12-25 18:04:22",
         "type": "library",
         "installation-source": "source",
         "autoload": {

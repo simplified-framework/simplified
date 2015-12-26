@@ -4,7 +4,6 @@ namespace App\Models;
 use Simplified\Database\Model;
 
 class User extends Model {
-    static $connection = 'default';
     static $primaryKey = 'user_id';
 
     public function posts() {
