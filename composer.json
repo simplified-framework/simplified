@@ -3,6 +3,7 @@
     "description": "This is project simplified",
     "license":"MIT",
     "type": "project",
+    "version": "1.0.0",
     "authors": [
         {
             "name": "Andreas Bratfisch",
