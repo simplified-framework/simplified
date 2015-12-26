@@ -2,8 +2,10 @@ Welcome to Simplified
 ---------------------
 
 Simplified is a MVC (Model/View/Controller) framework written in PHP and it's key feature is to be simply,
-be smart and work with most installable Composer components/libraries. It comes with url routing, a database 
-ORM layer, support for simple PHP templates and support for twig and at last a integrated form builder.
+be smart and work with most installable Composer components/libraries. The frameworks basic idea is to simplify 
+even some more frameworks like Symfony and/or Laravel. Simplified comes with url routing, a database 
+abstraction and ORM layer, support for simple PHP templates and support for twig and at last a integrated html 
+form builder.
 
 ##### Installation
 To install the Simplified framework you need to install (if not already) Composer at first:
@@ -57,8 +59,16 @@ To configure translations, simply set the language variable to the one you want 
 ##### Providers configuration
 
 ##### Routes configuration
-To configure the application's routes - the ones that are responsable to answer network requests - is very simple
-and easy to understand.
+To configure the application's routes - the ones that are responsable to answer network url requests on the server side - 
+is very simple and easy to understand. To use basic routing, all you have to do is to declare the type of network request 
+like "get","put","post" or "delete" as the static method call on the route class, a route path, a controller and a controller 
+method:
+
+    Route::get("/", "yourControllerClassName@yourControllerMethod");
+
+At next, routes can have dynamic path segments:
+
+    Route::get("/page/{id}", "yourControllerClassName@yourControllerMethod");
 
 There is support for our tool named "Simplified Build" too, look at https://www.npmjs.com/package/simplified-build 
 for the installation and usage.
