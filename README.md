@@ -22,9 +22,29 @@ in the server configuration. If it's activated, you can view your installation o
 directly on your web server providers url.
 
 ###### What's next?
-At first, you need to know something about your application environment.
+At first, you need to know something about your application environment. To keep things simple and developer friendly,
+we have created a directory structure to point you to several things:
+
+  - __app__
+     - __config__  
+       Used for your application configurations
+     - __controllers__  
+       Used for controllers
+     - __database__  
+       Used for migrations and seeds
+     - __i18n__  
+       Used for language translations
+     - __models__  
+       Used for databse models
+     - __resources__  
+       Used for views assets(scripts, (s)css and less files) and third party vendor files
+     - __storage__  
+       Used to store user sessions, sqlite databases and template cache files
+  - __public__  
+       The where the index.php, .htaccess and generated css files/images are
+  - __vendor__  
+    component sub directories
+     
 
 There is support for our tool named "Simplified Build" too, look at https://www.npmjs.com/package/simplified-build 
 for the installation and usage.
-
-
