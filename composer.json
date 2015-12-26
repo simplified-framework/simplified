@@ -8,9 +8,9 @@
         }
     ],
     "require": {
-		"simplified/framework": "1.0.*",
-        "simplified/twigbridge":"1.0.*",
-        "simplified/html":"1.0.*"
+		"simplified/framework": "1.0.x-dev",
+        "simplified/twigbridge":"1.0.x-dev",
+        "simplified/html":"1.0.x-dev"
     },
 	"repositories": [
         {
