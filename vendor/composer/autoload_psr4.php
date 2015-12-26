@@ -19,5 +19,6 @@ return array(
     'Simplified\\Core\\' => array($vendorDir . '/simplified/framework/core/src'),
     'Simplified\\Console\\' => array($vendorDir . '/simplified/framework/console/src'),
     'Simplified\\Config\\' => array($vendorDir . '/simplified/framework/config/src'),
+    'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
     'App\\' => array($baseDir . '/app'),
 );

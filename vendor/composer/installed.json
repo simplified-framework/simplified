@@ -1,46 +1,8 @@
 [
     {
-        "name": "simplified/html",
+        "name": "doctrine/inflector",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/simplified-framework/html.git",
-            "reference": "6380f4b6c8def40802b955e697e747acc31fff81"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/simplified-framework/html/zipball/6380f4b6c8def40802b955e697e747acc31fff81",
-            "reference": "6380f4b6c8def40802b955e697e747acc31fff81",
-            "shasum": ""
-        },
-        "time": "2015-12-20 07:54:56",
-        "type": "library",
-        "installation-source": "source",
-        "autoload": {
-            "psr-4": {
-                "Simplified\\Html\\": "src/"
-            },
-            "files": [
-                "src/Forms/FormExtension.php"
-            ]
-        },
-        "authors": [
-            {
-                "name": "Andreas Bratfisch",
-                "email": "duskman72@gmail.com"
-            }
-        ],
-        "description": "Simplified html module",
-        "support": {
-            "source": "https://github.com/simplified-framework/html/tree/master",
-            "issues": "https://github.com/simplified-framework/html/issues"
-        }
-    },
-    {
-        "name": "doctrine/inflector",
-        "version": "v1.1.0",
-        "version_normalized": "1.1.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/doctrine/inflector.git",
@@ -65,7 +27,7 @@
                 "dev-master": "1.1.x-dev"
             }
         },
-        "installation-source": "dist",
+        "installation-source": "source",
         "autoload": {
             "psr-0": {
                 "Doctrine\\Common\\Inflector\\": "lib/"
@@ -108,30 +70,33 @@
     },
     {
         "name": "symfony/polyfill-mbstring",
-        "version": "v1.0.0",
-        "version_normalized": "1.0.0.0",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/polyfill-mbstring.git",
-            "reference": "0b6a8940385311a24e060ec1fe35680e17c74497"
+            "reference": "49ff736bd5d41f45240cec77b44967d76e0c3d25"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/0b6a8940385311a24e060ec1fe35680e17c74497",
-            "reference": "0b6a8940385311a24e060ec1fe35680e17c74497",
+            "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/49ff736bd5d41f45240cec77b44967d76e0c3d25",
+            "reference": "49ff736bd5d41f45240cec77b44967d76e0c3d25",
             "shasum": ""
         },
         "require": {
             "php": ">=5.3.3"
         },
-        "time": "2015-11-04 20:28:58",
+        "suggest": {
+            "ext-mbstring": "For best performance"
+        },
+        "time": "2015-11-20 09:19:13",
         "type": "library",
         "extra": {
             "branch-alias": {
                 "dev-master": "1.0-dev"
             }
         },
-        "installation-source": "dist",
+        "installation-source": "source",
         "autoload": {
             "psr-4": {
                 "Symfony\\Polyfill\\Mbstring\\": ""
@@ -166,17 +131,17 @@
     },
     {
         "name": "symfony/console",
-        "version": "v2.8.0",
-        "version_normalized": "2.8.0.0",
+        "version": "2.8.x-dev",
+        "version_normalized": "2.8.9999999.9999999-dev",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/console.git",
-            "reference": "d232bfc100dfd32b18ccbcab4bcc8f28697b7e41"
+            "reference": "2e06a5ccb19dcf9b89f1c6a677a39a8df773635a"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/console/zipball/d232bfc100dfd32b18ccbcab4bcc8f28697b7e41",
-            "reference": "d232bfc100dfd32b18ccbcab4bcc8f28697b7e41",
+            "url": "https://api.github.com/repos/symfony/console/zipball/2e06a5ccb19dcf9b89f1c6a677a39a8df773635a",
+            "reference": "2e06a5ccb19dcf9b89f1c6a677a39a8df773635a",
             "shasum": ""
         },
         "require": {
@@ -193,14 +158,14 @@
             "symfony/event-dispatcher": "",
             "symfony/process": ""
         },
-        "time": "2015-11-30 12:35:10",
+        "time": "2015-12-22 10:25:57",
         "type": "library",
         "extra": {
             "branch-alias": {
                 "dev-master": "2.8-dev"
             }
         },
-        "installation-source": "dist",
+        "installation-source": "source",
         "autoload": {
             "psr-4": {
                 "Symfony\\Component\\Console\\": ""
@@ -228,25 +193,33 @@
     },
     {
         "name": "psr/log",
-        "version": "1.0.0",
-        "version_normalized": "1.0.0.0",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
             "url": "https://github.com/php-fig/log.git",
-            "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b"
+            "reference": "9e45edca52cc9c954680072c93e621f8b71fab26"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/php-fig/log/zipball/fe0936ee26643249e916849d48e3a51d5f5e278b",
-            "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b",
+            "url": "https://api.github.com/repos/php-fig/log/zipball/9e45edca52cc9c954680072c93e621f8b71fab26",
+            "reference": "9e45edca52cc9c954680072c93e621f8b71fab26",
             "shasum": ""
         },
-        "time": "2012-12-21 11:40:51",
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2015-06-02 13:48:41",
         "type": "library",
-        "installation-source": "dist",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "source",
         "autoload": {
-            "psr-0": {
-                "Psr\\Log\\": ""
+            "psr-4": {
+                "Psr\\Log\\": "Psr/Log/"
             }
         },
         "notification-url": "https://packagist.org/downloads/",
@@ -267,18 +240,69 @@
         ]
     },
     {
-        "name": "twig/twig",
-        "version": "v1.23.1",
-        "version_normalized": "1.23.1.0",
+        "name": "simplified/framework",
+        "version": "1.0.x-dev",
+        "version_normalized": "1.0.9999999.9999999-dev",
         "source": {
             "type": "git",
-            "url": "https://github.com/twigphp/Twig.git",
-            "reference": "d9b6333ae8dd2c8e3fd256e127548def0bc614c6"
+            "url": "https://github.com/simplified-framework/framework.git",
+            "reference": "3d4f97af3eec98fd7b9bcb24ca0f3c1f6ceb6bef"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/twigphp/Twig/zipball/d9b6333ae8dd2c8e3fd256e127548def0bc614c6",
-            "reference": "d9b6333ae8dd2c8e3fd256e127548def0bc614c6",
+            "url": "https://api.github.com/repos/simplified-framework/framework/zipball/3d4f97af3eec98fd7b9bcb24ca0f3c1f6ceb6bef",
+            "reference": "3d4f97af3eec98fd7b9bcb24ca0f3c1f6ceb6bef",
+            "shasum": ""
+        },
+        "require": {
+            "doctrine/inflector": "1.x",
+            "psr/log": "1.0.x",
+            "symfony/console": "2.x"
+        },
+        "time": "2015-12-26 09:54:19",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Simplified\\Config\\": "config/src/",
+                "Simplified\\Debug\\": "debug/src/",
+                "Simplified\\Core\\": "core/src/",
+                "Simplified\\Database\\": "database/src/",
+                "Simplified\\Http\\": "http/src/",
+                "Simplified\\Orm\\": "orm/src/",
+                "Simplified\\Session\\": "session/src/",
+                "Simplified\\Log\\": "log/src",
+                "Simplified\\Console\\": "console/src"
+            },
+            "files": [
+                "http/src/helper.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Andreas Bratfisch",
+                "email": "duskman72@gmail.com"
+            }
+        ],
+        "description": "Simplified framework module"
+    },
+    {
+        "name": "twig/twig",
+        "version": "1.x-dev",
+        "version_normalized": "1.9999999.9999999.9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/twigphp/Twig.git",
+            "reference": "db93842e80d758f6c74c3e1f1f088badb3fc84f0"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/twigphp/Twig/zipball/db93842e80d758f6c74c3e1f1f088badb3fc84f0",
+            "reference": "db93842e80d758f6c74c3e1f1f088badb3fc84f0",
             "shasum": ""
         },
         "require": {
@@ -288,7 +312,7 @@
             "symfony/debug": "~2.7",
             "symfony/phpunit-bridge": "~2.7"
         },
-        "time": "2015-11-05 12:49:06",
+        "time": "2015-11-17 12:22:13",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -331,23 +355,23 @@
     },
     {
         "name": "simplified/twigbridge",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
+        "version": "1.0.x-dev",
+        "version_normalized": "1.0.9999999.9999999-dev",
         "source": {
             "type": "git",
             "url": "https://github.com/simplified-framework/twigbridge.git",
-            "reference": "278c6580a07027cbba42ae0329ab7d830fc858f7"
+            "reference": "860f25fc34e32de69b21c025a06577da6eb5571e"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/simplified-framework/twigbridge/zipball/278c6580a07027cbba42ae0329ab7d830fc858f7",
-            "reference": "278c6580a07027cbba42ae0329ab7d830fc858f7",
+            "url": "https://api.github.com/repos/simplified-framework/twigbridge/zipball/860f25fc34e32de69b21c025a06577da6eb5571e",
+            "reference": "860f25fc34e32de69b21c025a06577da6eb5571e",
             "shasum": ""
         },
         "require": {
             "twig/twig": "~1.0"
         },
-        "time": "2015-12-19 20:57:22",
+        "time": "2015-12-26 09:55:27",
         "type": "library",
         "installation-source": "source",
         "autoload": {
@@ -355,67 +379,59 @@
                 "Simplified\\TwigBridge\\": "src/"
             }
         },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
         "authors": [
             {
                 "name": "Andreas Bratfisch",
                 "email": "duskman72@gmail.com"
             }
         ],
-        "description": "Simplified twigbridge module",
-        "support": {
-            "source": "https://github.com/simplified-framework/twigbridge/tree/master",
-            "issues": "https://github.com/simplified-framework/twigbridge/issues"
-        }
+        "description": "Simplified twigbridge module"
     },
     {
-        "name": "simplified/framework",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
+        "name": "simplified/html",
+        "version": "1.0.x-dev",
+        "version_normalized": "1.0.9999999.9999999-dev",
         "source": {
             "type": "git",
-            "url": "https://github.com/simplified-framework/framework.git",
-            "reference": "04923cfa2eb5b4c895ef5646c7bbdde647bc5d80"
+            "url": "https://github.com/simplified-framework/html.git",
+            "reference": "ef4189e78bd30d1e40580d84960ad9ffd050ed9d"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/simplified-framework/framework/zipball/04923cfa2eb5b4c895ef5646c7bbdde647bc5d80",
-            "reference": "04923cfa2eb5b4c895ef5646c7bbdde647bc5d80",
+            "url": "https://api.github.com/repos/simplified-framework/html/zipball/ef4189e78bd30d1e40580d84960ad9ffd050ed9d",
+            "reference": "ef4189e78bd30d1e40580d84960ad9ffd050ed9d",
             "shasum": ""
         },
-        "require": {
-            "doctrine/inflector": "1.x",
-            "psr/log": "1.0.x",
-            "symfony/console": "2.x"
-        },
-        "time": "2015-12-25 18:04:22",
+        "time": "2015-12-26 09:54:55",
         "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.1-dev"
+            }
+        },
         "installation-source": "source",
         "autoload": {
             "psr-4": {
-                "Simplified\\Config\\": "config/src/",
-                "Simplified\\Debug\\": "debug/src/",
-                "Simplified\\Core\\": "core/src/",
-                "Simplified\\Database\\": "database/src/",
-                "Simplified\\Http\\": "http/src/",
-                "Simplified\\Orm\\": "orm/src/",
-                "Simplified\\Session\\": "session/src/",
-                "Simplified\\Log\\": "log/src",
-                "Simplified\\Console\\": "console/src"
+                "Simplified\\Html\\": "src/"
             },
             "files": [
-                "http/src/helper.php"
+                "src/Forms/FormExtension.php"
             ]
         },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
         "authors": [
             {
                 "name": "Andreas Bratfisch",
                 "email": "duskman72@gmail.com"
             }
         ],
-        "description": "Simplified framework module",
-        "support": {
-            "source": "https://github.com/simplified-framework/framework/tree/master",
-            "issues": "https://github.com/simplified-framework/framework/issues"
-        }
+        "description": "Simplified html module"
     }
 ]
