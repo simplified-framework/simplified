@@ -10,7 +10,7 @@
     "require": {
 		"simplified/framework": "1.0.x-dev",
         "simplified/twigbridge":"1.0.x-dev",
-        "simplified/html":"dev-master"
+        "simplified/html":"1.0.x-dev"
     },
 	"repositories": [
         {
