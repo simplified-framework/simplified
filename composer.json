@@ -8,7 +8,7 @@
         }
     ],
     "require": {
-		"simplified/framework": "1.0.x",
+		"simplified/framework": "1.0.x-dev",
         "simplified/twigbridge":"dev-master",
         "simplified/html":"dev-master"
     },
