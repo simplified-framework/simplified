@@ -12,20 +12,6 @@
         "simplified/twigbridge":"1.0.x",
         "simplified/html":"1.0.x"
     },
-	"repositories": [
-        {
-			"type":"vcs",
-			"url":"https://github.com/simplified-framework/framework"
-		},
-        {
-          "type":"vcs",
-          "url":"https://github.com/simplified-framework/twigbridge"
-        },
-        {
-          "type":"vcs",
-          "url":"https://github.com/simplified-framework/html"
-        }
-	],
     "autoload": {
         "psr-4": {
         	"App\\":"app/"
