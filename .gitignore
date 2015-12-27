@@ -1,6 +1,5 @@
 /.idea
 /.buildpath
-/.project
 /composer.lock
 /app/resources/vendor
 /app/storage
