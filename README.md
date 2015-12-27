@@ -64,12 +64,28 @@ is very simple and easy to understand. To use basic routing, all you have to do 
 like "get","put","post" or "delete" as the static method call on the route class, a route path, a controller and a controller 
 method:
 
+    // GET method example
     Route::get("/", "yourControllerClassName@yourControllerMethod");
+    
+    // PUT method example
+    Route::put("/", "yourControllerClassName@yourControllerMethod");
+    
+    // POST method example
+    Route::post("/", "yourControllerClassName@yourControllerMethod");
+    
+    // DELETE method example
+    Route::delete("/", "yourControllerClassName@yourControllerMethod");
 
 At next, routes can have dynamic path segments:
-
+ 
     Route::get("/page/{id}", "yourControllerClassName@yourControllerMethod");
 
+You can control the dynamic segment with Regex rules:
+
+    // allow numeric page id only
+    Route::get("/page/{id}", "yourControllerClassName@yourControllerMethod")
+        ->conditions(array('id' => '[0-9]+'));
+    
 There is support for our tool named "Simplified Build" too, look at https://www.npmjs.com/package/simplified-build 
 for the installation and usage.
 
