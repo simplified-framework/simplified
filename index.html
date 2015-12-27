@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Simplified by simplified-framework</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Simplified</h1>
+      <h2 class="project-tagline">Base of Simplified  Framework</h2>
+      <a href="https://github.com/simplified-framework/simplified" class="btn">View on GitHub</a>
+      <a href="https://github.com/simplified-framework/simplified/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/simplified-framework/simplified/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h2>
+<a id="welcome-to-simplified" class="anchor" href="#welcome-to-simplified" aria-hidden="true"><span class="octicon octicon-link"></span></a>Welcome to Simplified</h2>
+
+<p>Simplified is a MVC (Model/View/Controller) framework written in PHP and it's key feature is to be simply,
+be smart and work with most installable Composer components/libraries. It comes with url routing, a database 
+ORM layer, support for simple PHP templates and support for twig and at last a integrated form builder.</p>
+
+<h5>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h5>
+
+<p>To install the Simplified framework you need to install (if not already) Composer at first:</p>
+
+<pre><code>$&gt;php -r "readfile('https://getcomposer.org/installer');" | php 
+$&gt;sudo mv composer.phar /usr/local/bin/composer 
+$&gt;sudo chmod 775 /usr/local/bin/composer 
+</code></pre>
+
+<p>Once Composer is installed, you can start the Simplified installation process:</p>
+
+<pre><code>$&gt;composer create-project simplified/simplified YOUR_DIRECTORY "1.0.*"
+</code></pre>
+
+<h5>
+<a id="simplified-on-your-web-server" class="anchor" href="#simplified-on-your-web-server" aria-hidden="true"><span class="octicon octicon-link"></span></a>Simplified on your web server</h5>
+
+<p>The Simplified framework runs at best on apache web servers, here you need to activate the mod_rewrite module
+in the server configuration. If it's activated, you can view your installation on the url http://localhost or
+directly on your web server providers url.</p>
+
+<h5>
+<a id="whats-next" class="anchor" href="#whats-next" aria-hidden="true"><span class="octicon octicon-link"></span></a>What's next?</h5>
+
+<p>At first, you need to know something about your application environment. To keep things simple and developer friendly,
+we have created a directory structure to point you to several things:</p>
+
+<ul>
+<li>
+<strong>app</strong>
+
+<ul>
+<li>
+<strong>config</strong><br>
+Used for your application configurations</li>
+<li>
+<strong>controllers</strong><br>
+Used for controllers</li>
+<li>
+<strong>database</strong><br>
+Used for migrations and seeds</li>
+<li>
+<strong>i18n</strong><br>
+Used for language translations</li>
+<li>
+<strong>models</strong><br>
+Used for databse models</li>
+<li>
+<strong>resources</strong><br>
+Used for views assets(scripts, (s)css and less files) and third party vendor files</li>
+<li>
+<strong>storage</strong><br>
+Used to store user sessions, sqlite databases and template cache files</li>
+</ul>
+</li>
+<li>
+<strong>public</strong><br>
+   The place where the index.php, .htaccess and generated css files/images are</li>
+<li>
+<strong>vendor</strong><br>
+component sub directories</li>
+</ul>
+
+<h5>
+<a id="database-configuration" class="anchor" href="#database-configuration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Database configuration</h5>
+
+<p>To configure your database you have to edit/add a item in the configuration array.<br>
+The first key is to make sure, the configuration can be found via a unique name, use "default" if you want this 
+configuration as your default one. To setup other configurations, give them a name and tell the database connection this 
+name - or set the connection name in your database model class.</p>
+
+<h5>
+<a id="language-configuration" class="anchor" href="#language-configuration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Language configuration</h5>
+
+<p>To configure translations, simply set the language variable to the one you want to use, and the default as fallback.</p>
+
+<h5>
+<a id="providers-configuration" class="anchor" href="#providers-configuration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Providers configuration</h5>
+
+<h5>
+<a id="routes-configuration" class="anchor" href="#routes-configuration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Routes configuration</h5>
+
+<p>To configure the application's routes - the ones that are responsable to answer network requests - is very simple
+and easy to understand.</p>
+
+<p>There is support for our tool named "Simplified Build" too, look at <a href="https://www.npmjs.com/package/simplified-build">https://www.npmjs.com/package/simplified-build</a> 
+for the installation and usage.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/simplified-framework/simplified">Simplified</a> is maintained by <a href="https://github.com/simplified-framework">simplified-framework</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
