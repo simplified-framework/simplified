@@ -2,8 +2,7 @@
 
 use Simplified\Http\Route;
 
-Route::get("/{id}", array(
+Route::get("/", array(
     'as' => 'index.default',
     'uses' => 'Controller@newIndex')
 );
-
