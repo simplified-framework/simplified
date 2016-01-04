@@ -2,13 +2,11 @@
 
 namespace App\Controllers;
 
-use Simplified\Core\View;
+use Simplified\View\View;
 
 class Controller {
-    public function newIndex() {
-        $options = array("opt1" => "Option 1", "opt2" => "Option 2");
-
+    public function index() {
         $v = new View();
-        return $v->render('index.twig', compact('options'));
+        return $v->render('index');
     }
 }
