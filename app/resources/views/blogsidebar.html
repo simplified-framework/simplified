@@ -1,0 +1,8 @@
+{% if categories %}
+<div class="blog_widget">
+	<h3>Categories</h3>
+	{% for cat in categories %}
+	<div><a href="{{ homeurl }}category/{{ cat.slug }}">{{ cat.title }}</a></div>
+	{% endfor %}
+</div>
+{% endif %}

@@ -1,0 +1,29 @@
+<div class="blog_row">
+    <div class="blog_content">
+     <img class="picture" src="/dummyimage/320x240/101010/333333/image.png"/>
+     <h2 class="blog_title"><a href="{{ homeurl }}{{ post.slug }}">{{ post.title }}</a></h2>
+     <p class="metadata first">
+     	<span class="term-icon grey"><i class="fa fa-user"></i></span><a href="#">Author</a>
+     	&nbsp;
+     	<span class="term-icon grey"><i class="fa fa-calendar"></i></span><a href="#">{{ post.created_at|localizeddate('medium', 'short', locale) }}</a>
+     </p>
+     <p>{{ post.teasertext | raw }} <a href="#" class="readmore">read more ...</a></p>
+     <div class="clearfix"></div>
+     <p class="metadata">
+     	{% if post.categories and post.categories.count > 0%}
+     	<span class="term-icon"><i class="fa fa-folder-open"></i></span>
+     	{% for category in post.categories %}
+     	<a href="{{ homeurl }}category/{{ category.slug }}">{{ category.title }}</a>{% if not loop.last %},&nbsp;{% endif %}
+     	{% endfor %}
+     	{% endif %}
+     	{% if post.tags and post.tags.count > 0 %}
+     	&nbsp;&nbsp;&nbsp;
+     	<span class="term-icon"><i class="fa fa-tags"></i></span>
+     	{% for tag in post.tags() %}
+     	<a href="{{ homeurl }}tags/{{ tag.slug }}">{{ tag.slug }}</a>
+     	{% if not loop.last %},&nbsp;{% endif %}
+     	{% endfor %}
+     	{% endif %}
+     </p>
+    </div>
+</div>

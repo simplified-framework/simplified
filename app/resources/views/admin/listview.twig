@@ -1,0 +1,73 @@
+<div id="listview">
+<div class="header">
+	<h2>{{ listtitle }}</h2>
+	{% if create %}
+	<button onclick="openurl('{{ moduleurl }}/create');" class="btn btn-default green"><i class="glyphicon glyphicon-plus icon-white"></i> add item</button>
+	{% endif %}
+	<div class="clearfix"></div>
+</div>
+{% if items %}
+<table cellspacing="0">
+<tr>
+{% for head in headers %}
+<th>{{ head }}</th>
+{% endfor%}
+{% if edit %}
+<th>&nbsp;</th>
+{% endif %}
+{% if delete %}
+<th>&nbsp;</th>
+{% endif %}
+</tr>
+{% for item in items %}
+<tr class="data-row">
+{% for key in keys %}
+<td>{{ attribute(item, key) }}</td>
+{% endfor %}
+{% if edit %}
+<td class="icon" align="center">
+<a href="{{ moduleurl }}/edit/{{ item['id'] }}" class="icon"><i class="fa fa-pencil-square-o"></i></a>
+</td>
+{% endif %}
+{% if delete %}
+<td class="icon" align="center">
+<a href="{{ moduleurl }}/remove/{{ item['id'] }}" class="icon remove hint--left" data-hint="Remove element"><i class="fa fa-times-circle"></i></a>
+</td>
+{% endif %}
+</tr>
+{% endfor %}
+</table>
+{% else %}
+<i class="info">There are no items in this view</i>
+{% endif %}
+<div class="footer"></div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#listview').find('tr.data-row').hover(
+		// in
+		function() {
+			$(this).addClass('hover');
+		},
+		// out
+		function() {
+			$(this).removeClass('hover');
+		}	
+	);
+
+	$('#listview').find('a.remove').click(function(e){
+		e.preventDefault();
+		var href = $(this).attr('href');
+		bootbox.confirm('Element wirklich entfernen?', function(result) {
+			if (result) {
+				window.location.replace(href);
+				return;
+			} 
+			else {
+				return;
+			}
+				
+		});	
+	});
+});
+</script>

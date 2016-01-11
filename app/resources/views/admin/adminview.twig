@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Backend - {{ pagetitle }}</title>
+<link rel="stylesheet" href="{{ baseurl }}css/open-sans.css" type="text/css" />
+<link rel="stylesheet" href="{{ baseurl }}css/font-awesome.min.css" type="text/css" />
+<link rel="stylesheet" href="{{ baseurl }}css/hint.min.css" type="text/css" />
+<link rel="stylesheet" href="{{ baseurl }}css/jquery.tagit.css" type="text/css" />
+<link rel="stylesheet" href="{{ baseurl }}css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="{{ baseurl }}css/admin.css" type="text/css" />
+<script type="text/javascript" src="{{ baseurl }}scripts/jquery.min.js"></script>
+<script type="text/javascript" src="{{ baseurl }}scripts/jquery-ui.min.js"></script>
+<script type="text/javascript" src="{{ baseurl }}scripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="{{ baseurl }}scripts/tag-it.min.js"></script>
+<script type="text/javascript" src="{{ baseurl }}scripts/bootbox.js"></script>
+<script type="text/javascript" src="{{ baseurl }}scripts/tinymce/tinymce.min.js"></script>
+<script type="text/javascript" src="{{ baseurl }}scripts/underscore.string.min.js"></script>
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript">
+function openurl(link) {
+	document.location.replace(link);
+}
+
+function submitform(frm) {
+	if ($('.editorarea')) {
+		tinyMCE.triggerSave();
+		var content = tinyMCE.activeEditor.getContent();
+		$('.editorarea').val(content);
+		$(frm).submit();
+	}
+}
+</script>
+</head>
+<body>
+<div id="wrapper">
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="{{ baseurl }}"><i class="icon fa fa-sitemap"></i><span>Pages</span></a>
+			</li>
+			<li>
+				<a href="{{ baseurl }}"><i class="icon fa fa-sitemap"></i><span>Navigations</span></a>
+			</li>
+			<li class="active">
+				<a href="{{ baseurl }}admin/categories"><i class="icon fa fa-folder-open-o"></i><span>Categories</span></a>
+			</li>
+			<li>
+				<a href="{{ baseurl }}admin/tags"><i class="icon fa fa-tags"></i><span>Tags</span></a>
+			</li>
+			<li>
+				<a href="{{ baseurl }}admin/posts"><i class="icon fa fa-file-text-o"></i><span>Posts</span></a>
+			</li>
+			<li>
+				<a href="{{ baseurl }}"><i class="icon fa fa-comment-o"></i><span>Comments</span></a>
+			</li>
+			<li>
+				<a href="{{ baseurl }}"><i class="icon fa fa-file-o"></i><span>Files</span></a>
+			</li>
+			<li>
+				<a href="{{ baseurl }}"><i class="icon fa fa-picture-o"></i><span>Picture Galleries</span></a>
+			</li>
+			<li>
+				<a href="{{ baseurl }}"><i class="icon fa fa-user"></i><span>Users</span></a>
+			</li>
+			<li>
+				<a href="{{ baseurl }}"><i class="icon fa fa-cog"></i><span>Settings</span></a>
+			</li>
+		</ul>
+	</div>
+	<div id="contentview">
+		{% if backurl %}
+		<button onclick="openurl('{{ backurl }}');" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i>Back</button>
+		<div class="clearfix"></div>
+		{% endif %}
+		{{ content | raw }}
+	</div>
+	{% if buttons %}
+	<div id="buttonbar">
+		<ul>
+			{% for btn in buttons %}
+			<li><button id="{{ btn.id }}" class="btn {{ btn.class }}" onclick="{{ btn.action | raw }}"><i class="{{ btn.icon }}"></i>{{ btn.title }}</button></li>
+			{% endfor %}
+		</ul>
+	</div>
+	{% endif %}
+	<script type="text/javascript">
+		window.onload = function() {
+			{% if errors %}
+			var err = '';	
+			{% for errormsg in errors %}
+			err += '{{ errormsg }}<br/>';
+			{% endfor %}
+			setTimeout(function(){
+				bootbox.alert(err);
+			}, 250);
+			{% endif %}
+		};
+		
+		$(document).ready(function(){
+			// resize button bar
+			var pad = parseInt( $('#buttonbar').css('padding-top') );
+			pad += parseInt( $('#buttonbar').css('padding-bottom') );
+			$('#contentview').css('bottom', ($('#buttonbar').height()+pad));
+		});
+	</script>
+</div>
+</body>
+</html>

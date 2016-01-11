@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>BLOGTITLE</title>
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" href="{{ baseurl }}css/open-sans.css" type="text/css">
+		<link rel="stylesheet" href="{{ baseurl }}css/font-awesome.min.css" type="text/css">
+        <link rel="stylesheet" href="{{ baseurl }}css/bootstrap.min.css" type="text/css">
+        <link rel="stylesheet" href="{{ baseurl }}css/blog.css" type="text/css">
+        <script type="text/javascript" src="{{ baseurl }}scripts/jquery.min.js"></script>
+		<script type="text/javascript" src="{{ baseurl }}scripts/bootstrap.min.js"></script>
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+    </head>
+    <body>
+    	<div id="container">
+        	<div id="blog_header">
+        		<h2><a href="{{ homeurl }}">Lorem Ipsum Headline</a></h2>
+        		<h3>Lorem Ipsum Subheadline</h3>
+        	</div>
+        	<ul id="blog_navigation">
+        		<li>Home</li>
+        		<li>Services</li>
+        		<li>About Us</li>
+        	</ul>
+	        <div id="left_content">
+	        {% if posts is empty %}
+            	<div class="blog_row">
+				    <div class="blog_content">
+						<h2 class="blog_title">Ooops, there are no posts to show.</h2>
+					</div>
+				</div>
+            {% else %}
+            	{% for post in posts %}
+                {{ include('blogpostitem.html', ignore_missing = true) }}
+                {% endfor %}
+            {% endif %}
+	        </div>
+	        <div id="right_content">
+	            {{ include('blogsidebar.html', ignore_missing = true) }}
+	        </div>
+	        <div class="clearfix"></div>
+	        {{ include('blogfooter.html', ignore_missing = true) }}
+        </div>
+    </body>
+</html>
