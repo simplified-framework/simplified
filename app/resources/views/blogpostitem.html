@@ -3,7 +3,7 @@
      <img class="picture" src="/dummyimage/320x240/101010/333333/image.png"/>
      <h2 class="blog_title"><a href="{{ homeurl }}{{ post.slug }}">{{ post.title }}</a></h2>
      <p class="metadata first">
-     	<span class="term-icon grey"><i class="fa fa-user"></i></span><a href="#">Author</a>
+     	<span class="term-icon grey"><i class="fa fa-user"></i></span><a href="#">{{ post.author.name }}</a>
      	&nbsp;
      	<span class="term-icon grey"><i class="fa fa-calendar"></i></span><a href="#">{{ post.created_at|localizeddate('medium', 'short', locale) }}</a>
      </p>

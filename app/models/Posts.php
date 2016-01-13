@@ -11,6 +11,10 @@ class Posts extends Model {
 	{
 		return $this->hasMany('App\\Models\\Tags');
 	}
+
+	public function author() {
+		return $this->hasOne('App\\Models\\User');
+	}
 	
 	/**
 	 * Get categories for a post

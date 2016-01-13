@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Posts as Posts;
-use App\Tags as Tags;
+namespace App\Controllers\Admin;
 
-use App\Libraries\Forms\Forms;
+use App\Models\Posts as Posts;
+use App\Models\Tags as Tags;
+
+use Simplified\Forms\Forms;
 use App\Libraries\Forms\TagInput;
 use App\Libraries\Forms\TextInput;
 use App\Libraries\Forms\UpdateField;
@@ -14,16 +13,20 @@ use App\Libraries\Forms\TextArea;
 use App\Libraries\Forms\TextEditor;
 use App\Libraries\Forms\CategoriesField;
 use App\CategoriesRelations;
+use Simplified\Http\BaseController;
+use Simplified\Http\Request;
+use Simplified\View\View;
 
-class PostController extends Controller {
+class PostController extends BaseController {
 	public function index(Request $req) {
 		$errors = array();
-		if ($req->session()->get('msg')) {
-			$errors[] = $req->session()->pull('msg', 'unknown message');
-		}
+		//if ($req->session()->get('msg')) {
+		//	$errors[] = $req->session()->pull('msg', 'unknown message');
+		//}
 		
 		$posts = Posts::all()->toArray();
-		$content = $this->template->render('admin/listview.twig',
+		$v = new View();
+		$content = $v->render('admin/listview.twig',
 			array(
 				'listtitle' => 'Posts',
 				'headers' => array(
@@ -42,7 +45,7 @@ class PostController extends Controller {
 			)
 		);
 		
-		return $this->template->render('admin/adminview.twig',
+		return $v->render('admin/adminview.twig',
 			array(
 				'errors' => $errors,
 				'baseurl' => url('/') . '/',

@@ -1,22 +1,21 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Categories as Categories;
-use App\Libraries\Forms\Forms;
-use App\Libraries\Forms\TextInput;
-use App\Libraries\Forms\UpdateField;
+namespace App\Controllers\Admin;
 
-class CategoryController extends Controller {
+use App\Models\Categories as Categories;
+use Simplified\Http\BaseController;
+use Simplified\Http\Request;
+use Simplified\View\View;
+
+class CategoryController extends BaseController {
+
 	public function index(Request $req) {
 		$errors = array();
-		if ($req->session()->get('msg')) {
-			$errors[] = $req->session()->pull('msg', 'unknown message');
-		}
+
 		$categories = Categories::all()->toArray();
-		
-		$content = $this->template->render('admin/listview.twig',
+
+		$v = new View();
+		$content = $v->render('admin/listview.twig',
 			array(
 				'listtitle' => 'Categories',
 				'headers' => array(
@@ -33,7 +32,7 @@ class CategoryController extends Controller {
 			)
 		);
 		
-		return $this->template->render('admin/adminview.twig',
+		return $v->render('admin/adminview.twig',
 			array(
 				'errors' => $errors,
 				'baseurl' => url('/') . '/',
@@ -44,13 +43,11 @@ class CategoryController extends Controller {
 	
 	public function edit(Request $req, $id) {
 		$errors = array();
-		if (\Session::get('msg')) {
-			$errors[] = $req->session()->pull('msg', 'unknown message');
-		}
 		
 		// generate form
 		$category = Categories::find($id);
-		
+
+		/*
 		$frm = new Forms(null, array('id' => 'CATEGORY_FRM', 'class' => 'form', 'route' => array('categories.save', $category->id)));
 		$frm->setTitle('Edit Category');
 		$e = new TextInput('title', $category->title, array('id' => 'text1', 'class' => 'textfield long'));
@@ -61,14 +58,16 @@ class CategoryController extends Controller {
 		$e->setSource('text1');
 		$frm->addElement($e);
 		$content = $frm->render();
-		
-		return $this->template->render('admin/adminview.twig',
+		*/
+
+		$v = new View();
+		return $v->render('admin/adminview.twig',
 			array(
 				'errors' => $errors,
 				'pagetitle' => 'Edit Category',
 				'baseurl' => url('/') . '/',
 				'backurl' => url('/') . '/admin/categories',
-				'content' => $content,
+				'content' => '',
 				'buttons' => array(
 					array(
 						'title' => 'Save',

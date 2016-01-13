@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Tags as Tags;
+namespace App\Controllers\Admin;
 
-class TagController extends Controller {
+use App\Models\Tags as Tags;
+use Simplified\Http\BaseController;
+use Simplified\Http\Request;
+use Simplified\View\View;
+
+class TagController extends BaseController {
 	public function index(Request $req) {
 		$errors = array();
-		if ($req->session()->get('msg')) {
-			$errors[] = $req->session()->pull('msg', 'unknown message');
-		}
 		$tags = Tags::all()->toArray();
-		$content = $this->template->render('admin/listview.twig',
+		$v = new View();
+		$content = $v->render('admin/listview.twig',
 			array(
 				'listtitle' => 'Tags',
 				'headers' => array(
@@ -28,7 +28,7 @@ class TagController extends Controller {
 			)
 		);
 		
-		return $this->template->render('admin/adminview.twig',
+		return $v->render('admin/adminview.twig',
 			array(
 				'pagetitle' => 'Tags',
 				'errors' => $errors,

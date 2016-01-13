@@ -26,12 +26,12 @@
 {% endfor %}
 {% if edit %}
 <td class="icon" align="center">
-<a href="{{ moduleurl }}/edit/{{ item['id'] }}" class="icon"><i class="fa fa-pencil-square-o"></i></a>
+<a href="{{ moduleurl }}/edit/{{ attribute(item, 'id') }}" class="icon"><i class="fa fa-pencil-square-o"></i></a>
 </td>
 {% endif %}
 {% if delete %}
 <td class="icon" align="center">
-<a href="{{ moduleurl }}/remove/{{ item['id'] }}" class="icon remove hint--left" data-hint="Remove element"><i class="fa fa-times-circle"></i></a>
+<a href="{{ moduleurl }}/remove/{{ attribute(item, 'id') }}" class="icon remove hint--left" data-hint="Remove element"><i class="fa fa-times-circle"></i></a>
 </td>
 {% endif %}
 </tr>

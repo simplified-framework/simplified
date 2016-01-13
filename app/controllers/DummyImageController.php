@@ -1,8 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Controllers;
 
 use Simplified\Http\Response;
+
+function public_path() {
+	return dirname($_SERVER['SCRIPT_FILENAME']);
+}
 
 class DummyImageController extends Controller {
 	private $content = null;
@@ -31,6 +35,6 @@ class DummyImageController extends Controller {
 		$imagedata = ob_get_contents(); // read from buffer
 		ob_end_clean(); // delete buffer
 
-		return new Response($imagedata, 200, array('Content-length' => strlen($imagedata),'Content-type' => "image/png"));
+		return new Response($imagedata, 200, array('Content-Length' => strlen($imagedata),'Content-Type' => "image/png"));
 	}
 }
