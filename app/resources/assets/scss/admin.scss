@@ -1,5 +1,4 @@
 @CHARSET "utf-8";
-
 body {
 	font-family: 'open-sans', 'arial', 'helvetica';
 	font-size: 14px;
@@ -8,7 +7,13 @@ body {
 	margin: 0;
 	padding: 0;
 	background: #e2e7ea;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-o-user-select: none;
 }
+
 .clearfix {
 	float: none;
 	clear: both;
@@ -18,16 +23,11 @@ body {
 	padding: 0;
 	font-size: 0;
 }
-.no-select {
-	-moz-user-select: none; 
-	-webkit-user-select: none; 
-	-ms-user-select:none; 
-	user-select:none;
-	-o-user-select:none;
-}
+
 .pointer-cursor {
 	cursor: default;
 }
+
 #navigation {
 	position: absolute;
 	bottom: 0;
@@ -36,24 +36,29 @@ body {
 	min-width: 200px;
 	background: #192f43;
 }
+
 #navigation ul {
 	margin: 0;
 	padding: 0;
 	list-style: none;
 }
+
 #navigation ul li {
 	border-bottom: 1px solid #172a3c;
 	border-top: 1px solid #1a3146;
 }
+
 #navigation ul li.active {
 	background: #0d82b0;
 }
+
 #navigation ul li a {
 	display: block;
 	padding: 8px;
 	color: #fff;
 	text-decoration: none;
 }
+
 .icon {
 	display: inline-block;
 	color: #bac1c7;
@@ -63,12 +68,14 @@ body {
 	margin-right: 5px;
 	margin-left: 5px;
 }
+
 .checkbox-container {
 	color: #222 !important;
 	line-height: 24px;
 	height: 24px;
 	display: inline-block;
 }
+
 .checkbox-container i {
 	font-size: 18px !important;
 	color: #222 !important;
@@ -76,19 +83,23 @@ body {
 	float: left;
 	margin-right: 3px;
 }
+
 .checkbox-container span {
 	display: inline-block;
 	height: 24px;
 	line-height: 24px;
 }
+
 #navigation ul li.active {
 	text-shadow: 0px 0px 2px #111;
 }
+
 #navigation ul li a span {
 	height: 24px;
 	line-height: 24px;
 	font-size: 14px;
 }
+
 #contentview {
 	position: absolute;
 	left: 200px;
@@ -98,24 +109,29 @@ body {
 	overflow: auto;
 	padding: 30px;
 }
+
 #contentview h2 {
 	color: #222;
 	text-shadow: 0 0 3px #fff;
 	font-weight: 500;
 }
+
 #listview {
 	border: 1px solid #c5c5c5;
 	border-radius: 5px;
 }
-#listview .header, 
+
+#listview .header,
 #listview .footer {
 	background: #d8d8d8;
 	padding: 10px;
 }
+
 #listview .icon {
 	width: 22px;
 	display: table-cell;
 }
+
 #listview a.icon {
 	width: 18px;
 	height: 18px;
@@ -125,12 +141,15 @@ body {
 	/*color: #009688;*/
 	color: #222;
 }
+
 #listview table {
 	width: 100%;
 }
+
 #listview table tr.hover {
 	background-color: #E0F7FA;
 }
+
 #listview table th {
 	text-align: left;
 	background: #ecebeb;
@@ -139,15 +158,18 @@ body {
 	font-weight: bold;
 	font-size: 12px;
 }
+
 #listview th, #listview td {
 	border-bottom: 1px solid #c5c5c5;
 	border-right: 1px solid #c5c5c5;
 	padding: 5px;
 }
-#listview table th:last-child, 
+
+#listview table th:last-child,
 #listview table td:last-child {
 	border-right: 0;
 }
+
 #listview h2 {
 	float: left;
 	color: #111;
@@ -158,32 +180,37 @@ body {
 	padding: 0;
 	text-shadow: 0 0 3px #fff;
 }
+
 #listview button {
 	float: right;
 }
+
 #listview i.info {
 	padding: 10px;
 	display: block;
 	background-color: #fff;
-
-}
-table tr:nth-child(odd) {  
-    background-color: #f9f9f9; 
 }
 
-table tr:nth-child(even) {  
-    background-color: #ffffff; 
+table tr:nth-child(odd) {
+	background-color: #f9f9f9;
 }
+
+table tr:nth-child(even) {
+	background-color: #ffffff;
+}
+
 .form {
 	/*margin-top: 20px;*/
 }
+
 .form-row {
 	clear: both;
 	float: none;
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
-.form label {
+
+.form .form-row label.row-label {
 	min-width: 200px;
 	font-weight: bold;
 	float: left;
@@ -191,6 +218,7 @@ table tr:nth-child(even) {
 	line-height: 35px;
 	display: inline-block;
 }
+
 .form .textfield {
 	height: 35px;
 	line-height: 35px;
@@ -198,20 +226,24 @@ table tr:nth-child(even) {
 	padding-right: 10px;
 	font-size: 14px;
 	border: 1px solid #CCC;
-	outline: none;
+	outline: none !important;
 	border-radius: 5px;
 }
+
 .form .textfield:disabled {
 	color: #999;
 	border: 0;
 	background: transparent;
 }
+
 .form .textfield.long {
 	width: 40%;
 }
+
 .form .textfield.short {
 	width: 250px;
 }
+
 .form .textarea {
 	width: 70%;
 	resize: none;
@@ -222,10 +254,25 @@ table tr:nth-child(even) {
 	outline: none;
 	border-radius: 5px;
 }
+
 .form .mce-tinymce {
 	width: 70%;
 	float: left;
 }
+
+.form .form-row .checkbox-row {
+	padding-top: 8px;
+}
+
+.form .form-row .checkbox-row label {
+	font-weight: normal;
+	margin-right: 10px;
+}
+
+.form .form-row .checkbox-row input {
+	margin-right: 5px;
+}
+
 #buttonbar {
 	position: absolute;
 	left: 200px;
@@ -233,35 +280,42 @@ table tr:nth-child(even) {
 	right: 0;
 	padding: 10px;
 }
+
 #buttonbar ul {
 	margin: 0;
 	padding: 0;
 	list-style: none;
 }
+
 #buttonbar ul li {
 	float: left;
 	margin-right: 15px;
 }
+
 .btn {
 	outline: none !important;
-	
 }
+
 .btn.green, .btn.green:hover, .btn.green:focus, .btn.green:active {
 	color: #fff !important;
 	background-color: #009688;
 	outline: none !important;
 	border: 1px solid #00695C;
 }
+
 .btn-primary, .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
 	background-color: #192f43;
 	border-color: #192f43;
 }
+
 .btn-primary:active {
 	background-color: #0d82b0;
 }
+
 .btn i {
 	margin-right: 5px;
 }
+
 ul.tagit {
 	width: 70%;
 	list-style: none;
@@ -271,21 +325,25 @@ ul.tagit {
 	border-radius: 5px;
 	background-color: #fff;
 }
+
 ul.tagit li.tagit-choice {
 	background: #336699;
 	color: #fff;
 	border-radius: 3px;
 }
+
 ul.tagit li.tagit-choice .tagit-label {
 	display: inline-block;
 	margin-right: 5px;
 }
+
 ul.tagit li.tagit-choice a {
 	color: #fff;
 	display: inline-block;
 	margin-right: 5px;
 	margin-left: 10px;
 }
+
 ul.tagit li.tagit-choice a:hover .ui-icon {
 	color: #6699ff;
 }

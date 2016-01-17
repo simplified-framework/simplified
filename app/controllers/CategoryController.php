@@ -7,16 +7,7 @@ use App\Models\Categories as Categories;
 use Simplified\Http\BaseController;
 use Simplified\View\View;
 
-class CategoryController extends BaseController
-{
-    /**
-     * Show given page.
-     *
-     * @param  int  $id
-     * @return Response
-     * 
-     * TODO respect page id
-     */
+class CategoryController extends BaseController {
     public function showCategory($slug = null)
     {
     	$cat = Categories::where('slug', $slug)->first();
@@ -24,8 +15,7 @@ class CategoryController extends BaseController
     	$posts = $cat == null ? array() : $cat->posts();
     	$categories = Categories::all();
 
-		$v = new View();
-    	return $v->render('blogpage.html',
+    	return view('blogpage.html',
     			array(
     					'baseurl' => url('/') . '/',
     					'homeurl' => url('/') . '/',

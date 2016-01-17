@@ -10,9 +10,11 @@ use Simplified\View\View;
 class TagController extends BaseController {
 	public function index(Request $req) {
 		$errors = array();
-		$tags = Tags::all()->toArray();
-		$v = new View();
-		$content = $v->render('admin/listview.twig',
+		if (\Session::has('msg'))
+			$errors[] = \Session::pull('msg');
+
+		$tags = Tags::all();
+		$content = view('admin/listview.twig',
 			array(
 				'listtitle' => 'Tags',
 				'headers' => array(
@@ -28,7 +30,7 @@ class TagController extends BaseController {
 			)
 		);
 		
-		return $v->render('admin/adminview.twig',
+		return view('admin/adminview.twig',
 			array(
 				'pagetitle' => 'Tags',
 				'errors' => $errors,
@@ -38,12 +40,12 @@ class TagController extends BaseController {
 		);
 	}
 	
-	public function remove(Request $req, $id) {
+	public function remove($id) {
 		$tag = Tags::find($id);
 		if ($tag) {
 			$tag->delete();
-			$req->session()->put('msg', 'Element removed.');
-			return \Redirect::to( url('/') . '/admin/tags');
+			\Session::put('msg', 'Element removed.');
+			redirect( url('/') . '/admin/tags');
 		}
 	}
 }

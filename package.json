@@ -1,7 +1,5 @@
 {
 	"dependencies" : {
-		"bower":"~1.6.x",
-		"gulp": "~3.9.x",
 		"simplified-build":"~1.0.x"
 	}
 }

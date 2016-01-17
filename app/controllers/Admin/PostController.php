@@ -2,31 +2,24 @@
 
 namespace App\Controllers\Admin;
 
+use App\Models\Categories;
 use App\Models\Posts as Posts;
 use App\Models\Tags as Tags;
-
-use Simplified\Forms\Forms;
-use App\Libraries\Forms\TagInput;
-use App\Libraries\Forms\TextInput;
-use App\Libraries\Forms\UpdateField;
-use App\Libraries\Forms\TextArea;
-use App\Libraries\Forms\TextEditor;
-use App\Libraries\Forms\CategoriesField;
-use App\CategoriesRelations;
+use App\Models\CategoriesRelations;
 use Simplified\Http\BaseController;
 use Simplified\Http\Request;
-use Simplified\View\View;
+use Simplified\Validator\Validator;
 
 class PostController extends BaseController {
+	use Validator;
 	public function index(Request $req) {
 		$errors = array();
-		//if ($req->session()->get('msg')) {
-		//	$errors[] = $req->session()->pull('msg', 'unknown message');
-		//}
+		if (\Session::get('msg')) {
+			$errors[] = \Session::pull('msg', 'unknown message');
+		}
 		
 		$posts = Posts::all()->toArray();
-		$v = new View();
-		$content = $v->render('admin/listview.twig',
+		$content = view('admin/listview.twig',
 			array(
 				'listtitle' => 'Posts',
 				'headers' => array(
@@ -45,7 +38,7 @@ class PostController extends BaseController {
 			)
 		);
 		
-		return $v->render('admin/adminview.twig',
+		return view('admin/adminview.twig',
 			array(
 				'errors' => $errors,
 				'baseurl' => url('/') . '/',
@@ -57,43 +50,27 @@ class PostController extends BaseController {
 	public function edit(Request $req, $id) {
 		$errors = array();
 		if (\Session::get('msg')) {
-			$errors[] = $req->session()->pull('msg', 'unknown message');
+			$errors[] = \Session::pull('msg', 'unknown message');
 		}
 		
 		$post = Posts::find($id);
 		if (empty(($post))) {
-			$req->session()->put('msg', 'Unable to save non existent post.');
-			return \Redirect::to( url('/') . '/admin/posts/create');
+			\Session::put('msg', 'Unable to save non existent post.');
+			redirect( url('/') . '/admin/posts/create');
 		}
-		
-		$post->tags = Tags::where('post_id', $id)->get();
-		
-		// generate form	
-		$frm = new Forms(null, array('id' => 'POSTS_FRM', 'class' => 'form', 'route' => array('posts.save', $post->id)));
-		$frm->setTitle('Edit Post');
-		$e = new TextInput('title', $post->title, array('id' => 'text1', 'class' => 'textfield long'));
-		$e->setLabel("Title");
-		$frm->addElement($e);
-		$e = new UpdateField('slug', $post->slug);
-		$e->setLabel('Slug');
-		$e->setSource('text1');
-		$frm->addElement($e);
-		$e = new TextArea('teasertext', $post->teasertext, array('class' => 'textarea'));
-		$e->setLabel("Teaser Text");
-		$frm->addElement($e);
-		$e = new TextEditor('body', $post->body);
-		$e->setLabel("Content");
-		$frm->addElement($e);
-		$e = new CategoriesField($post->categories());
-		$e->setLabel("Categories");
-		$frm->addElement($e);
-		$e = new TagInput('tags', $post->tags, array('id' => 'tags1', 'class' => 'textfield long'));
-		$e->setLabel("Tags");
-		$frm->addElement($e);
-		
-		$content = $frm->render();
-		
-		return $this->template->render('admin/adminview.twig',
+
+		$categories = Categories::all();
+		$selection = array();
+		foreach ($post->categories() as $pcat) {
+			$selection[] = $pcat->id;
+		}
+		foreach ($categories as $cat) {
+			if (in_array($cat->id, $selection))
+				$cat->checked = 'checked';
+		}
+		$content = view('admin/postedit', compact('post', 'categories'));
+
+		return view('admin/adminview.twig',
 			array(
 				'errors' => $errors,
 				'pagetitle' => 'Edit Post',
@@ -131,35 +108,14 @@ class PostController extends BaseController {
 	
 	public function create(Request $req) {
 		$errors = array();
-		if ($req->session()->get('msg')) {
-			$errors[] = $req->session()->pull('msg', 'unknown message');
+		if (\Session::has('msg')) {
+			$errors[] = \Session::pull('msg', 'unknown message');
 		}
+
+		$categories = Categories::all();
+		$content = view('admin/postedit', compact('categories'));
 		
-		// generate form
-		$frm = new Forms(null, array('id' => 'POSTS_FRM', 'class' => 'form', 'route' => array('posts.save')));
-		$frm->setTitle('Create Post');
-		$e = new TextInput('title', null, array('id' => 'text1', 'class' => 'textfield long'));
-		$e->setLabel("Title");
-		$frm->addElement($e);
-		$e = new UpdateField('slug', null);
-		$e->setLabel('Slug');
-		$e->setSource('text1');
-		$frm->addElement($e);
-		$e = new TextArea('teasertext', null, array('class' => 'textarea'));
-		$e->setLabel("Teaser Text");
-		$frm->addElement($e);
-		$e = new TextEditor('body', null);
-		$e->setLabel("Content");
-		$frm->addElement($e);
-		$e = new CategoriesField();
-		$e->setLabel("Categories");
-		$frm->addElement($e);
-		$e = new TagInput('tags', null, array('id' => 'tags1', 'class' => 'textfield long'));
-		$e->setLabel("Tags");
-		$frm->addElement($e);
-		$content = $frm->render();
-		
-		return $this->template->render('admin/adminview.twig',
+		return view('admin/adminview.twig',
 			array(
 				'errors' => $errors,
 				'pagetitle' => 'Create Post',
@@ -189,13 +145,14 @@ class PostController extends BaseController {
 	public function save(Request $req, $id = 0) {
 		$id = intval($id);
 		$rules = array(
-			'title' => 'required'
+			'title' => 'required',
+			'slug'  => 'required'
 		);
-		$validator = \Validator::make($req->all(), $rules);
-		if ($validator->fails()) {
+
+		if (!$this->validate($req, $rules)) {
 			$url = ($id == 0) ? '/admin/posts/create' : '/admin/posts/edit/'.$id;
-			$req->session()->put('msg', 'title must not be empty');
-			return \Redirect::to( url('/') . $url);
+			\Session::put('msg', 'title must not be empty');
+			redirect( url('/') . $url);
 		}
 		else {			
 			if ($id == 0) {
@@ -205,17 +162,18 @@ class PostController extends BaseController {
 				$post->teasertext = strip_tags(\Input::get('teasertext'));
 				$post->save();
 				
-				$categories = !empty(\Input::get('categories')) ? \Input::get('categories') : array();
+				$categories = !empty($req->input('categories')) ? $req->input('categories') : array();
 				if (!empty($categories) && count($categories) > 0) {
 					foreach ($categories as $category_id) {
-						$relation = CategoriesRelations::create(array('post_id' => $post->id));
+						$relation = new CategoriesRelations();
+						$relation->post_id = $post->id;
 						$relation->category_id = $category_id;
 						$relation->save();
 					}
 				}
 				
 				Tags::where('post_id', $post->id)->delete();
-				$tags = explode(",", \Input::get('tags'));
+				$tags = explode(",", $req->input('tags'));
 				if (!empty($tags)) {
 					foreach ($tags as $tag) {
 						if (empty(trim($tag)))
@@ -226,8 +184,8 @@ class PostController extends BaseController {
 					}
 				}
 				
-				$req->session()->put('msg', 'Post was successfully created.');
-				return \Redirect::to( url('/') . '/admin/posts/edit/' . $post->id);
+				\Session::put('msg', 'Post was successfully created.');
+				redirect( url('/') . '/admin/posts/edit/' . $post->id);
 			} else {
 				$post = Posts::find($id);				
 				if ($post) {
@@ -240,14 +198,11 @@ class PostController extends BaseController {
 					CategoriesRelations::where('post_id', $post->id)->delete();
 					$categories = !empty(\Input::get('categories')) ? \Input::get('categories') : array();
 					if (!empty($categories) && count($categories) > 0) {
-						var_dump($categories);
 						foreach ($categories as $category_id) {
 							$relation = CategoriesRelations::create(array('post_id' => $post->id));
 							$relation->category_id = $category_id;
 							$relation->save();
 						}
-					} else {
-						var_dump($categories); exit;
 					}
 					
 					Tags::where('post_id', $post->id)->delete();

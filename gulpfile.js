@@ -13,10 +13,8 @@ build(function(mix) {
 		var opensansFontPath = 'vendor/google-open-sans';
 		var underscorestringPath = 'vendor/underscore.string';
 		
-		mix.sass('scss/blog.scss')
-			.sass('scss/admin.scss')
-			.sass('scss/open-sans.scss')
-			.copy(jqueryPath + '/dist/jquery.min.js', 'public/scripts')
+		mix.sass('scss/*')
+			.copy(jqueryPath + '/jquery.min.js', 'public/scripts')
 			.copy(jqueryuiPath + '/jquery-ui.min.js', 'public/scripts')
 			.copy(bootboxPath + '/bootbox.js', 'public/scripts')
 			.copy(tinymcePath, 'public/scripts/tinymce')

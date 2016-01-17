@@ -1,0 +1,31 @@
+{{ form_open({'class':'form','id':'POSTS_FRM','action':route('posts.save',{'id':post.id})}) }}
+{{ form_token() }}
+<div class="form-row">
+    <label class="row-label">Title</label>
+    {{ form_input({'class':'textfield long','name':'title','id':'title1','value':post.title}) }}
+</div>
+<div class="form-row">
+    <label class="row-label">Slug</label>
+    {{ form_slug({'source':'title1','value':post.slug,'name':'slug'}) }}
+</div>
+<div class="form-row">
+    <label class="row-label">Teaser-Text</label>
+    {{ form_textarea({'class':'textarea','name':'teasertext','value':post.teasertext}) }}
+</div>
+<div class="form-row">
+    <label class="row-label">Content</label>
+    {{ form_editor({'id':'textedit','class':'textarea','name':'bodytext','value':post.body}) }}
+</div>
+<div class="form-row">
+    <label class="row-label">Categories</label>
+    <div class="checkbox-row">
+    {% for category in categories %}
+    {{ form_checkbox({'class':'checkbox-inline','label':category.title, 'checked':category.checked}) }}
+    {% endfor %}
+    </div>
+</div>
+<div class="form-row">
+    <label class="row-label">Tags</label>
+    {{ form_taginput({'value':post.tags}) }}
+</div>
+{{ form_close() }}

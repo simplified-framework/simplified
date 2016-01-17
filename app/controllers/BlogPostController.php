@@ -16,8 +16,7 @@ class BlogPostController extends BaseController {
 			$categories = Categories::all();
 			$post = Posts::where('slug', $slug)->first();
 
-			$v = new View();
-			return $v->render('blogpostsingle.html',
+			return view('blogpostsingle.html',
 				array(
 					'baseurl' => url(''),
 					'homeurl' => url(''),
