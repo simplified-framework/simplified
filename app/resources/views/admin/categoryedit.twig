@@ -1,11 +1,11 @@
 {{ form_open({'class':'form','id':'CATEGORY_FRM','action':route('categories.save',{'id':category.id})}) }}
 {{ form_token() }}
 <div class="form-row">
-<label>Title</label>
+<label class="row-label">Title</label>
 {{ form_input({'class':'textfield short','name':'title','id':'title1','value':category.title}) }}
 </div>
 <div class="form-row">
-<label>Slug</label>
+<label class="row-label">Slug</label>
 {{ form_slug({'source':'title1','value':category.slug,'name':'slug'}) }}
 </div>
 {{ form_close() }}

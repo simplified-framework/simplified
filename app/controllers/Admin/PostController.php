@@ -101,8 +101,8 @@ class PostController extends BaseController {
 		$post = Posts::find($id);
 		if ($post) {
 			$post->delete();
-			$req->session()->put('msg', 'Element removed.');
-			return \Redirect::to( url('/') . '/admin/posts');
+			\Session::put('msg', 'Element removed.');
+			redirect( url('/') . '/admin/posts');
 		}
 	}
 	
@@ -146,7 +146,8 @@ class PostController extends BaseController {
 		$id = intval($id);
 		$rules = array(
 			'title' => 'required',
-			'slug'  => 'required'
+			'slug'  => 'required',
+			'body'  => 'required'
 		);
 
 		if (!$this->validate($req, $rules)) {
@@ -156,10 +157,12 @@ class PostController extends BaseController {
 		}
 		else {			
 			if ($id == 0) {
-				$post = Posts::create( array('title' => \Input::get('title'), 'author_id' => 1) );
-				$post->body = \Input::get('body');
-				$post->slug = \Input::get('slug');
-				$post->teasertext = strip_tags(\Input::get('teasertext'));
+				$post = new Posts();
+				$post->title = $req->input('title');
+				$post->users_id = 1;
+				$post->body = $req->input('body');
+				$post->slug = $req->input('slug');
+				$post->teasertext = strip_tags($req->input('teasertext'));
 				$post->save();
 				
 				$categories = !empty($req->input('categories')) ? $req->input('categories') : array();
@@ -172,14 +175,15 @@ class PostController extends BaseController {
 					}
 				}
 				
-				Tags::where('post_id', $post->id)->delete();
+				Tags::where('posts_id', $post->id)->delete();
 				$tags = explode(",", $req->input('tags'));
 				if (!empty($tags)) {
 					foreach ($tags as $tag) {
 						if (empty(trim($tag)))
 							continue;
-						$t = Tags::create(array('slug' => $tag));
-						$t->post_id = $post->id;
+						$t = new Tags();
+						$t->slug = $tag;
+						$t->posts_id = $post->id;
 						$t->save();
 					}
 				}
@@ -189,40 +193,42 @@ class PostController extends BaseController {
 			} else {
 				$post = Posts::find($id);				
 				if ($post) {
-					$post->title = \Input::get('title');
-					$post->body = \Input::get('body');
-					$post->slug = \Input::get('slug');
-					$post->teasertext = strip_tags(\Input::get('teasertext'));
+					$post->title = $req->input('title');
+					$post->body = $req->input('body');
+					$post->slug = $req->input('slug');
+					$post->teasertext = strip_tags($req->input('teasertext'));
 					$post->save();
 					
 					CategoriesRelations::where('post_id', $post->id)->delete();
-					$categories = !empty(\Input::get('categories')) ? \Input::get('categories') : array();
+					$categories = !empty($req->input('categories')) ? $req->input('categories') : array();
 					if (!empty($categories) && count($categories) > 0) {
 						foreach ($categories as $category_id) {
-							$relation = CategoriesRelations::create(array('post_id' => $post->id));
+							$relation = new CategoriesRelations();
+							$relation->post_id = $id;
 							$relation->category_id = $category_id;
 							$relation->save();
 						}
 					}
 					
-					Tags::where('post_id', $post->id)->delete();
-					$tags = explode(",", \Input::get('tags'));
+					Tags::where('posts_id', $post->id)->delete();
+					$tags = explode(",", $req->input('tags'));
 					if (!empty($tags)) {
 						foreach ($tags as $tag) {
 							if (empty(trim($tag)))
 								continue;
-							$t = Tags::create(array('slug' => $tag));
-							$t->post_id = $post->id;
+							$t = new Tags();
+							$t->slug = $tag;
+							$t->posts_id = $post->id;
 							$t->save();
 						}
 					}
 					
-					$req->session()->put('msg', 'Post was successfully saved.');
-					return \Redirect::to( url('/') . '/admin/posts/edit/' . $post->id);
+					\Session::put('msg', 'Post was successfully saved.');
+					redirect( url('/') . '/admin/posts/edit/' . $post->id);
 				} else {
 					// show error!
-					$req->session()->put('msg', 'Unable to save non existent post.');
-					return \Redirect::to( url('/') . '/admin/posts/create');
+					\Session::put('msg', 'Unable to save non existent post.');
+					redirect( url('/') . '/admin/posts/create');
 				}
 			}
 		}

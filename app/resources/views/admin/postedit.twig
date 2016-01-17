@@ -14,13 +14,13 @@
 </div>
 <div class="form-row">
     <label class="row-label">Content</label>
-    {{ form_editor({'id':'textedit','class':'textarea','name':'bodytext','value':post.body}) }}
+    {{ form_editor({'id':'textedit','class':'textarea','name':'body','value':post.body}) }}
 </div>
 <div class="form-row">
     <label class="row-label">Categories</label>
     <div class="checkbox-row">
     {% for category in categories %}
-    {{ form_checkbox({'class':'checkbox-inline','label':category.title, 'checked':category.checked}) }}
+    {{ form_checkbox({'class':'checkbox-inline','label':category.title, 'checked':category.checked, 'name':'categories[]', 'value':category.id}) }}
     {% endfor %}
     </div>
 </div>
