@@ -12,6 +12,7 @@
 		"bootbox":"~4.4.x",
 		"underscore.string":"~3.2.x",
 		"tinymce":"~4.3.x",
-		"google-open-sans":"~1.0.x"
+		"google-open-sans":"~1.0.x",
+		"droparea": "https://github.com/rogeriotaques/droparea.git"
 	}
 }

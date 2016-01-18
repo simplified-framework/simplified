@@ -48,3 +48,10 @@ Route::get('/admin/posts/create', 'Admin\PostController@create');
 Route::get('/admin/posts/edit/{id}', 'Admin\PostController@edit')->conditions('id', '[0-9]+');
 Route::get('/admin/posts/remove/{id}', 'Admin\PostController@remove')->conditions('id', '[0-9]+');
 Route::post('/admin/posts/save/{id?}', ['as' => 'posts.save', 'uses' => 'Admin\PostController@save'])->conditions('id', '[0-9]+');
+
+// Admin galleries interface
+Route::get('/admin/galleries', 'Admin\GalleriesController@index');
+Route::get('/admin/galleries/create', 'Admin\GalleriesController@create');
+Route::get('/admin/galleries/edit/{id}', 'Admin\GalleriesController@edit')->conditions('id', '[0-9]+');
+Route::get('/admin/galleries/remove/{id}', 'Admin\GalleriesController@remove')->conditions('id', '[0-9]+');
+Route::post('/admin/galleries/save/{id?}', ['as' => 'galleries.save', 'uses' => 'Admin\GalleriesController@save'])->conditions('id', '[0-9]+');

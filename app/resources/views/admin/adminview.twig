@@ -62,7 +62,7 @@ function submitform(frm) {
 				<a href="{{ baseurl }}"><i class="icon fa fa-file-o"></i><span>Files</span></a>
 			</li>
 			<li>
-				<a href="{{ baseurl }}"><i class="icon fa fa-picture-o"></i><span>Picture Galleries</span></a>
+				<a href="{{ baseurl }}admin/galleries"><i class="icon fa fa-picture-o"></i><span>Picture Galleries</span></a>
 			</li>
 			<li>
 				<a href="{{ baseurl }}"><i class="icon fa fa-user"></i><span>Users</span></a>
@@ -89,6 +89,9 @@ function submitform(frm) {
 	</div>
 	{% endif %}
 	<script type="text/javascript">
+		bootbox.setDefaults({
+			 locale: "en"
+		});
 		window.onload = function() {
 			{% if errors %}
 			var err = '';	

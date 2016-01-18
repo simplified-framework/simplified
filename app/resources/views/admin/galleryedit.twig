@@ -1,0 +1,12 @@
+{{ form_open({'class':'form','id':'GALLERY_FRM','action':route('galleries.save',{'id':gallery.id})}) }}
+{{ form_token() }}
+<div class="form-row">
+<label class="row-label">Title</label>
+{{ form_input({'class':'textfield short','name':'title','value':gallery.title}) }}
+</div>
+{% if not gallery %}
+<div class="well well-sm">Save your work to upload images.</div>
+{% else %}
+Image Upload
+{% endif %}
+{{ form_close() }}

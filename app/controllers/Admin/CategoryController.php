@@ -14,7 +14,7 @@ class CategoryController extends BaseController {
 		if (\Session::has('msg'))
 			$errors[] = \Session::pull('msg');
 
-		$categories = Categories::all()->toArray();
+		$categories = Categories::all();
 		$content = view('admin/listview.twig',
 			array(
 				'listtitle' => 'Categories',
@@ -81,7 +81,7 @@ class CategoryController extends BaseController {
 		if ($category) {
 			$category->delete();
 			\Session::put('msg', 'Element removed.');
-			return redirect( url('/') . '/admin/categories');
+			redirect( url('/') . '/admin/categories');
 		}
 	}
 	
@@ -127,7 +127,6 @@ class CategoryController extends BaseController {
 		);
 
 		if (!$this->validate($req, $rules)) {
-			var_dump($_POST);
 			$url = ($id == 0) ? '/admin/categories/create' : '/admin/categories/edit/'.$id;
 			\Session::put('msg', implode('\n', $this->validationErrors()));
 			redirect( url('/') . $url);
