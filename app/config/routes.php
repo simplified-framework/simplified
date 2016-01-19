@@ -55,3 +55,4 @@ Route::get('/admin/galleries/create', 'Admin\GalleriesController@create');
 Route::get('/admin/galleries/edit/{id}', 'Admin\GalleriesController@edit')->conditions('id', '[0-9]+');
 Route::get('/admin/galleries/remove/{id}', 'Admin\GalleriesController@remove')->conditions('id', '[0-9]+');
 Route::post('/admin/galleries/save/{id?}', ['as' => 'galleries.save', 'uses' => 'Admin\GalleriesController@save'])->conditions('id', '[0-9]+');
+Route::post('/admin/galleries/upload/{id?}', ['as' => 'galleries.upload', 'uses' => 'Admin\GalleriesController@upload'])->conditions('id', '[0-9]+');

@@ -5,6 +5,7 @@ namespace App\Controllers\Admin;
 use App\Models\Galleries;
 use Simplified\Http\BaseController;
 use Simplified\Http\Request;
+use Simplified\Http\Response;
 use Simplified\Validator\Validator;
 
 class GalleriesController extends BaseController {
@@ -146,6 +147,35 @@ class GalleriesController extends BaseController {
                     redirect( url('/') . '/admin/galleries/edit/' . $gallery->id);
                 }
             }
+        }
+    }
+
+    public function upload(Request $req, $id) {
+        $file = $req->getUploadedFile('file');
+
+        $f = $req->getUploadedFiles();
+        var_dump($f);
+
+        if ($file) {
+            if ($file->getError() != 0) {
+                $json = new \stdClass();
+                $json->id = $id;
+                $json->error = 'Upload error';
+                return $json;
+            }
+            else {
+                $file->copyTo(public_path()."/uploads/".$file->getClientFilename());
+                $json = new \stdClass();
+                $json->error = false;
+                $json->id = $id;
+                $json->file = public_url().'uploads/'.$file->getClientFilename();
+                return $json;
+            }
+        } else {
+            $json = new \stdClass();
+            $json->id = $id;
+            $json->error = 'No file uploaded';
+            return $json;
         }
     }
 }

@@ -348,3 +348,15 @@ ul.tagit li.tagit-choice a {
 ul.tagit li.tagit-choice a:hover .ui-icon {
 	color: #6699ff;
 }
+
+.droparea {
+	display: inline-block;
+	margin: 0;
+	padding: 10px;
+	height: auto;
+	width: auto;
+	min-width: unset;
+	min-height: unset;
+	color: #666;
+	border: 1px dashed #666;
+}
