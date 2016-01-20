@@ -9,74 +9,76 @@
 {% else %}
 <div class="form-row">
     <label class="row-label">Add Image</label>
-    <div class="droparea">
+    <div class="droparea" id="droparea">
         <span >Drag and drop a file here or click!</span>
     </div>
     <input type="file" name="file" id="file" accept="image/*" style="display: none;" >
 </div>
-    <div class="form-row">
-        <label class="row-label">Images</label>
-        <ul id="images"></ul>
-    </div>
+<div class="form-row">
+    <label class="row-label">Images</label>
+    <ul id="images"></ul>
+</div>
 
-    <script type="text/javascript" >
-        $(document).ready(function(){
-            $('.droparea').click(function(e){
-                e.stopPropagation();
-                e.preventDefault();
+<script type="text/javascript" >
+    function uploadFile(form_data) {
+        var call = $.ajax({
+            url: "{{ route('galleries.upload',{'id':gallery.id}) }}",  //Server script to process data
+            type: 'POST',
+            xhr: function() {  // Custom XMLHttpRequest
+                var myXhr = $.ajaxSettings.xhr();
+                if(myXhr.upload){ // Check if upload property exists
+                    myXhr.upload.addEventListener('progress',function(ev){
+                        var percent  = 0,
+                                position = (ev.loaded || ev.position),
+                                total 	 = ev.total;
 
-                $('#file').click();
+                        if (ev.lengthComputable)
+                        {
+                            percent = Math.ceil(position / total * 100);
+                        }
 
-                $('#file').change(function(e){
-
-                    console.log("VALUE = " + $('#file').val());
-                    var form_data = new FormData($('form#GALLERY_FRM')[0]);
-                    form_data.append('file', e.target.files[0]);
-
-                    $.ajax({
-                        url: "{{ route('galleries.upload',{'id':gallery.id}) }}",  //Server script to process data
-                        type: 'POST',
-                        xhr: function() {  // Custom XMLHttpRequest
-                            var myXhr = $.ajaxSettings.xhr();
-                            if(myXhr.upload){ // Check if upload property exists
-                                myXhr.upload.addEventListener('progress',function(ev){
-                                    var percent  = 0,
-                                            position = (ev.loaded || ev.position),
-                                            total 	 = ev.total;
-
-                                    if (ev.lengthComputable)
-                                    {
-                                        percent = Math.ceil(position / total * 100);
-                                    }
-
-                                    console.log('Percent = ' + percent);
-                                }, false); // For handling the progress of the upload
-                            }
-                            return myXhr;
-                        },
-                        //Ajax events
-                        beforeSend: function(a, b, c){
-                            console.log("before send");
-                        },
-                        success: function(a){
-                            console.log("success");
-                            var img = $('<img />');
-                            $(img).attr('src', a.file);
-                            $('#images').append('<li><img src="'+a.file+'"/></li>');
-                        },
-                        error: function(a){
-                            console.log('ERROR!!');
-                        },
-                        // Form data
-                        data: form_data,
-                        //Options to tell jQuery not to process data or worry about content-type.
-                        cache: false,
-                        contentType: false,
-                        processData: false
-                    });
-                });
-            });
+                        console.log('Percent = ' + percent);
+                    }, false); // For handling the progress of the upload
+                }
+                return myXhr;
+            },
+            //Ajax events
+            beforeSend: function(a, b, c){
+                console.log("beforeSend()");
+            },
+            success: function(a){
+                var json = $.parseJSON(a);
+                console.log("success()");
+                $('#images').append('<li><img src="'+json.thumbUrl+'"/></li>');
+            },
+            error: function(a){
+                console.log('error()');
+            },
+            // Form data
+            data: form_data,
+            //Options to tell jQuery not to process data or worry about content-type.
+            cache: false,
+            contentType: false,
+            processData: false
         });
-    </script>
+    }
+
+    $(document).ready(function(){
+        $('#file').on('change', function(e){
+            var length = e.target.files.length;
+            if (length) {
+                var form_data = new FormData();
+                form_data.append('file', e.target.files[0]);
+                uploadFile(form_data);
+            }
+        });
+
+        $('#droparea').on('click', function(e){
+            $('#file').click();
+            e.stopPropagation();
+            e.preventDefault();
+        });
+    });
+</script>
 {% endif %}
 {{ form_close() }}

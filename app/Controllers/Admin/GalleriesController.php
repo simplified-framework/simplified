@@ -2,6 +2,7 @@
 
 namespace App\Controllers\Admin;
 
+use abeautifulsite\SimpleImage;
 use App\Models\Galleries;
 use Simplified\Http\BaseController;
 use Simplified\Http\Request;
@@ -153,9 +154,6 @@ class GalleriesController extends BaseController {
     public function upload(Request $req, $id) {
         $file = $req->getUploadedFile('file');
 
-        $f = $req->getUploadedFiles();
-        var_dump($f);
-
         if ($file) {
             if ($file->getError() != 0) {
                 $json = new \stdClass();
@@ -164,11 +162,22 @@ class GalleriesController extends BaseController {
                 return $json;
             }
             else {
-                $file->copyTo(public_path()."/uploads/".$file->getClientFilename());
+                $targetImage    = public_path() . "/uploads/".$file->getClientFilename();
+                $targetThumb    = public_path() . "/uploads/thumb-".$file->getClientFilename();
+                $targetImageUrl = public_url() . "uploads/".$file->getClientFilename();
+                $targetThumbUrl = public_url() . "uploads/thumb-".$file->getClientFilename();
+
+                $file->copyTo($targetImage);
+
+                $image = new SimpleImage($targetImage);
+                $image->thumbnail(220)->save($targetThumb);
+
                 $json = new \stdClass();
                 $json->error = false;
                 $json->id = $id;
-                $json->file = public_url().'uploads/'.$file->getClientFilename();
+                $json->imageUrl = $targetImageUrl;
+                $json->thumbUrl = $targetThumbUrl;
+
                 return $json;
             }
         } else {
