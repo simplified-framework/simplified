@@ -4,10 +4,6 @@ namespace App\Controllers;
 
 use Simplified\Http\Response;
 
-function public_path() {
-	return dirname($_SERVER['SCRIPT_FILENAME']);
-}
-
 class DummyImageController extends Controller {
 	private $content = null;
 	// http://dummyimage.com/320x240/101010/fff.png&text=Image
@@ -22,7 +18,7 @@ class DummyImageController extends Controller {
 		list($r, $g, $b) = sscanf($foreground, "%02x%02x%02x");
 		$color = imagecolorallocate($im, $r, $g, $b);
 		
-		$fontfile = public_path() . "/fonts/glyphicons-halflings-regular.ttf";
+		$fontfile = public_path() . "/fonts/bootstrap/glyphicons-halflings-regular.ttf";
 		$string1 = "&#xe060;";
 		$box = imagettfbbox ( 72 , 0, $fontfile , $string1);
 		$width1 = abs($box[4] - $box[0]);

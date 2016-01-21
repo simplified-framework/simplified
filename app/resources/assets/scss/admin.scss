@@ -349,21 +349,12 @@ ul.tagit li.tagit-choice a:hover .ui-icon {
 	color: #6699ff;
 }
 
-.droparea {
-	display: inline-block;
-	margin: 0;
-	padding: 10px;
-	height: auto;
-	width: auto;
-	min-width: unset;
-	min-height: unset;
-	color: #666;
-	border: 1px dashed #666;
-}
-
 #images {
 	list-style: none;
-	display: inline-block;
+	display: inline;
+	float: left;
+	margin-left: 200px;
+	padding: 0;
 }
 
 #images li {
