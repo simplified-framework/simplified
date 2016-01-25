@@ -1,3 +1,32 @@
+<script type="text/javascript">
+    // Binding handler
+    ko.bindingHandlers.registerItem = {
+        init: function (element) {
+            if ($('#images').find('li').length > 0)
+                $('.content-message').hide();
+
+            $(element).gallerize({
+                delete_url: '{{ route('galleries.deleteImage',{id:''}) }}/'+$(element).attr('data-id'),
+                edit_url:   '{{ route('galleries.editImage',{id:''}) }}/'+$(element).attr('data-id'),
+                update_url: '{{ route('galleries.updateImage',{id:''}) }}/'+$(element).attr('data-id'),
+
+                delete_success: function(e) {
+                    if ($('#images').find('li').length == 0)
+                        $('.content-message').show();
+                },
+                delete_error: function(e) {
+                    // TODO handle error
+                },
+                update_success: function(response_data) {
+                    // TODO handle success
+                },
+                update_error: function(response_data) {
+                    // TODO handle error
+                }
+            });
+        }
+    };
+</script>
 {{ form_open({'class':'form','id':'GALLERY_FRM','action':route('galleries.save',{'id':gallery.id})}) }}
 {{ form_token() }}
 <div class="form-row">
@@ -9,76 +38,67 @@
 {% else %}
 <div class="form-row">
     <label class="row-label">Add Image</label>
-    <a href="#" class="btn btn-default" id="droparea">
-        Drag and drop a file here or click!
-    </a>
-    <input type="file" name="file" id="file" accept="image/*" style="display: none;" >
+    <div class="simplified-uploader">
+        <a href="#" class="btn btn-default droparea">
+            Drag and drop a file here or click!
+        </a>
+        <input type="file" name="file" class="file-input" accept="image/*" style="display: none;" >
+    </div>
 </div>
 <div class="form-row">
     <label class="row-label">Images</label>
-    <ul id="images"></ul>
+    <div class="content-message" style="display: none;"><i>There are no uploaded images.</i></div>
+    <ul id="images" data-bind="foreach: GalleryItems">
+        <li data-bind="attr: {id:'item-'+id, 'data-id':id}, registerItem: true" class="item">
+            <a href="#" class="overflow" data-toggle="dropdown">
+                <i class="glyphicon glyphicon-option-vertical icon-black"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dLabel">
+                <li>
+                    <a class="edit">Edit Picture Data</a>
+                </li>
+                <li class="hairline"></li>
+                <li>
+                    <a class="remove">Delete</a>
+                </li>
+            </ul>
+            <a class="image" data-title="my image" rel="lightbox[album]" data-lightbox="gallery" data-bind="attr: {href:imageUrl}, style: {'backgroundImage': 'url('+thumbnail+')'}"></a>
+        </li>
+    </ul>
+    <script type="text/javascript">
+        {% if attribute(gallery, 'images').count() == 0 %}
+        $('.content-message').show();
+        {% endif %}
+        {% for image in gallery.images %}
+        GalleryItems.push(
+            new GalleryItem({{image.id}}, '{{ image.thumbnailUrl }}', '{{ image.imageUrl }}')
+        );
+        {% endfor %}
+
+        var model = { items : GalleryItems };
+        ko.applyBindings(model);
+    </script>
 </div>
 
 <script type="text/javascript" >
-    function uploadFile(form_data) {
-        var call = $.ajax({
-            url: "{{ route('galleries.upload',{'id':gallery.id}) }}",  //Server script to process data
-            type: 'POST',
-            xhr: function() {  // Custom XMLHttpRequest
-                var myXhr = $.ajaxSettings.xhr();
-                if(myXhr.upload){ // Check if upload property exists
-                    myXhr.upload.addEventListener('progress',function(ev){
-                        var percent  = 0,
-                                position = (ev.loaded || ev.position),
-                                total 	 = ev.total;
-
-                        if (ev.lengthComputable)
-                        {
-                            percent = Math.ceil(position / total * 100);
-                        }
-
-                        console.log('Percent = ' + percent);
-                    }, false); // For handling the progress of the upload
-                }
-                return myXhr;
-            },
-            //Ajax events
-            beforeSend: function(a, b, c){
-                console.log("beforeSend()");
-            },
-            success: function(a){
-                var json = $.parseJSON(a);
-                console.log("success()");
-                $('#images').append('<li><img src="'+json.thumbUrl+'"/></li>');
-            },
-            error: function(a){
-                console.log('error()');
-            },
-            // Form data
-            data: form_data,
-            //Options to tell jQuery not to process data or worry about content-type.
-            cache: false,
-            contentType: false,
-            processData: false
-        });
-    }
-
     $(document).ready(function(){
-        $('#file').on('change', function(e){
-            var length = e.target.files.length;
-            if (length) {
-                var form_data = new FormData();
-                form_data.append('file', e.target.files[0]);
-                uploadFile(form_data);
+        lightbox.option({
+            'resizeDuration': 200,
+            'wrapAround': true
+        });
+
+        simplifiedUploader.option({
+            post_data: {'gallery_id' : '{{ gallery.id }}'},
+            url : "{{ route('galleries.uploadImage',{'id':gallery.id}) }}",
+            success: function(responseData) {
+                var json = $.parseJSON(responseData);
+                GalleryItems.push(
+                    new GalleryItem(json.id, json.thumbUrl, json.imageUrl)
+                );
             }
         });
-
-        $('#droparea').on('click', function(e){
-            $('#file').click();
-            e.stopPropagation();
-            e.preventDefault();
-        });
     });
+
 </script>
 {% endif %}
 {{ form_close() }}

@@ -12,4 +12,8 @@ namespace App\Models;
 use Simplified\Database\Model;
 
 class Galleries extends Model {
+    public function images() {
+        $images = $this->hasMany(GalleryImages::class);
+        return $images;
+    }
 }

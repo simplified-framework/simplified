@@ -4,6 +4,9 @@ namespace App\Controllers\Admin;
 
 use abeautifulsite\SimpleImage;
 use App\Models\Galleries;
+use App\Models\GalleryImageMeta;
+use App\Models\GalleryImages;
+use Cocur\Slugify\Slugify;
 use Simplified\Http\BaseController;
 use Simplified\Http\Request;
 use Simplified\Http\Response;
@@ -151,7 +154,7 @@ class GalleriesController extends BaseController {
         }
     }
 
-    public function upload(Request $req, $id) {
+    public function uploadImage(Request $req, $id) {
         $file = $req->getUploadedFile('file');
 
         if ($file) {
@@ -162,19 +165,31 @@ class GalleriesController extends BaseController {
                 return $json;
             }
             else {
-                $targetImage    = public_path() . "/uploads/".$file->getClientFilename();
-                $targetThumb    = public_path() . "/uploads/thumb-".$file->getClientFilename();
-                $targetImageUrl = public_url() . "uploads/".$file->getClientFilename();
-                $targetThumbUrl = public_url() . "uploads/thumb-".$file->getClientFilename();
+                $slugify = new Slugify();
+                $filename = $slugify->slugify($file->getClientFilename());
+                $targetImage    = public_path() . "/uploads/".$filename;
+                $targetThumb    = public_path() . "/uploads/thumb-".$filename;
+                $targetImageUrl = public_url() . "uploads/".$filename;
+                $targetThumbUrl = public_url() . "uploads/thumb-".$filename;
 
                 $file->copyTo($targetImage);
 
                 $image = new SimpleImage($targetImage);
-                $image->thumbnail(220)->save($targetThumb);
+                $image->thumbnail(140)->save($targetThumb);
+
+                $model = new GalleryImages();
+                $model->galleries_id = $id;
+                $model->filename = basename($targetImage);
+                $model_id = $model->save();
+
+                $meta = new GalleryImageMeta();
+                $meta->title = 'Untitled';
+                $meta->gallery_images_id = $model_id;
+                $meta->save();
 
                 $json = new \stdClass();
                 $json->error = false;
-                $json->id = $id;
+                $json->id = $model_id;
                 $json->imageUrl = $targetImageUrl;
                 $json->thumbUrl = $targetThumbUrl;
 
@@ -185,6 +200,27 @@ class GalleriesController extends BaseController {
             $json->id = $id;
             $json->error = 'No file uploaded';
             return $json;
+        }
+    }
+
+    public function deleteImage(Request $req, $id) {
+        $image = GalleryImages::find($id);
+        if ($image) {
+            $image->delete();
+            return ['error' => false];
+        }
+
+        return ['error' => 'Unable to remove picture'];
+    }
+
+    public function editImage(Request $req, $id) {
+        $image = GalleryImages::find ($id);
+        try {
+            $meta = $image->metadata();
+            $content = view('admin/gallerymetaedit', compact('meta'));
+            return $content;
+        } catch (\Exception $e) {
+            return new Response($e->getMessage(), 500);
         }
     }
 }

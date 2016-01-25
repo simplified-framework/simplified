@@ -2,17 +2,19 @@
 	"name": "app-name",
 	"version": "0.0.1",
 	"dependencies": {
-		"bootstrap":"~3.3.5",
-		"bootstrap-sass": "~3.3.x",
-		"jquery": "~1.9.x",
+		"bootstrap":"3.3.5",
+		"bootstrap-sass": "3.3.x",
+		"jquery": "2.2.x",
 		"jquery-ui":"1.11.x",
-		"font-awesome":"~4.5.x",
+		"font-awesome":"4.5.x",
 		"tag-it":"*",
-		"hint.css":"~1.3.x",
-		"bootbox":"~4.4.x",
-		"underscore.string":"~3.2.x",
-		"tinymce":"~4.3.x",
-		"google-open-sans":"~1.0.x",
-		"droparea": "rogeriotaques/droparea"
+		"hint.css":"1.3.x",
+		"bootbox":"4.4.x",
+		"underscore.string":"3.2.x",
+		"tinymce":"4.3.x",
+		"google-open-sans":"1.0.x",
+		"lightbox2":"v2.8.2",
+		"jquery.transit":"rstacruz/jquery.transit",
+		"knockoutjs":"3.x"
 	}
 }

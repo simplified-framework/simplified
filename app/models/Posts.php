@@ -13,7 +13,7 @@ class Posts extends Model {
 	}
 
 	public function author() {
-		return $this->hasOne('App\\Models\\User');
+		return $this->belongsTo('App\\Models\\User', 'users_id');
 	}
 	
 	/**
