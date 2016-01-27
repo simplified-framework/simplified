@@ -1,4 +1,4 @@
-{{ form_open({'class':'form','id':'META_FRM',action:route('galleries.updateImage',{id:meta.id})}) }}
+{{ form_open({'class':'form','id':'META_FRM',action:route('galleries.updateImage',{id:image.id})}) }}
 {{ form_token() }}
 <div class="form-row">
     <label class="row-label">Title</label>
@@ -6,6 +6,6 @@
 </div>
 <div class="form-row">
     <label class="row-label">Copyright</label>
-    {{ form_input({'name':'copyright','class':'textfield short'}) }}
+    {{ form_input({'name':'copyright','class':'textfield short','value':meta.copyright}) }}
 </div>
 {{ form_close() }}

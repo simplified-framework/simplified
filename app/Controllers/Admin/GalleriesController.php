@@ -206,6 +206,10 @@ class GalleriesController extends BaseController {
     public function deleteImage(Request $req, $id) {
         $image = GalleryImages::find($id);
         if ($image) {
+            $meta = $image->metadata();
+            if ($meta)
+                $meta->delete();
+
             $image->delete();
             return ['error' => false];
         }
@@ -216,9 +220,22 @@ class GalleriesController extends BaseController {
     public function editImage(Request $req, $id) {
         $image = GalleryImages::find ($id);
         try {
-            $meta = $image->metadata();
-            $content = view('admin/gallerymetaedit', compact('meta'));
+            $meta = $image->metadata;
+            $content = view('admin/gallerymetaedit', compact('image', 'meta'));
             return $content;
+        } catch (\Exception $e) {
+            return new Response($e->getMessage(), 500);
+        }
+    }
+
+    public function updateImage(Request $req, $id) {
+        $image = GalleryImages::find ($id);
+        try {
+            $meta = $image->metadata();
+            $meta->title = $req->input('title');
+            $meta->copyright = $req->input('copyright');
+            $meta->save();
+            return array('success' => true);
         } catch (\Exception $e) {
             return new Response($e->getMessage(), 500);
         }

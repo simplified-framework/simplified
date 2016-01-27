@@ -79,34 +79,39 @@ GalleryItems.extend({ notify: 'always' });
                         label: "Cancel",
                         className: "btn-default"
                     },
-                    success: {
+                    okbutton: {
                         label: "Save",
                         className: "btn-success",
                         callback: function() {
-                            $.ajax({
-                                url: settings.update_url,
-                                type:'POST',
-                                success: function(e) {
-                                    settings.update_success(e);
-                                },
-                                error: function(xhr, ajaxOptions, thrownError) {
-                                    settings.update_error(xhr.responseText);
-                                }
-                            });
+                            $('#imageEditor').find('form').submit();
+                            return false;
                         }
                     }
                 }
             })
             .on('shown.bs.modal', function() {
-                var self = this;
                 $.ajax({
                     url: settings.edit_url,
                     type:'GET',
                     success: function(e) {
-                        $('#imageEditor').find('.dialog-loading').hide();
-                        $('#imageEditor').find('.dialog-content').html(e);
+                        var editor = $('#imageEditor');
+                        editor.find('.dialog-loading').hide();
+                        editor.find('.dialog-content').css('height', 40);
+                        editor.find('.dialog-content').html(e);
+
+                        editor.find('#META_FRM').ajaxForm({
+                            success: function() {
+                                bootbox.hideAll();
+                            },
+                            error: function(e) {
+                                bootbox.hideAll();
+                                bootbox.alert(e.responseText);
+                            }
+                        });
+
+                        editor.find('.dialog-content').transition({height: 110}, 350);
                     },
-                    error: function(xhr, ajaxOptions, thrownError) {
+                    error: function(xhr) {
                         bootbox.hideAll();
                         bootbox.alert('<h4>Error!</h4><p>'+xhr.responseText+'</p>');
                     }
