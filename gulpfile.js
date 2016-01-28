@@ -10,6 +10,7 @@ build(function(mix) {
 	var fontawesomePath = 'vendor/font-awesome';
 	var tagsPath = 'vendor/tag-it';
 	var opensansFontPath = 'vendor/google-open-sans';
+	var underscorePath = 'vendor/underscore';
 	var underscorestringPath = 'vendor/underscore.string';
 	var transitpath = 'vendor/jquery.transit';
 	var lightboxpath = 'vendor/lightbox2';
@@ -21,6 +22,7 @@ build(function(mix) {
 		.copy(jqueryuiPath + '/jquery-ui.min.js', 'public/scripts')
 		.copy(bootboxPath + '/bootbox.js', 'public/scripts')
 		.copy(tinymcePath, 'public/scripts/tinymce')
+		.copy(underscorePath + '/underscore-min.js', 'public/scripts')
 		.copy(underscorestringPath + '/dist/underscore.string.min.js', 'public/scripts')
 		.copy(tagsPath + '/js/tag-it.min.js', 'public/scripts')
 		.copy(tagsPath + '/css/jquery.tagit.css','public/css')

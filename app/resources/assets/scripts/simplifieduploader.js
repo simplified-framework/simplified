@@ -23,6 +23,7 @@
     SimplifiedUploader.defaults = {
         post_data: null,
         url : '/path/to/server',
+        accept: '*.*',
         success: function(e) {},
         error: function(e) {}
     };
@@ -35,6 +36,14 @@
                 var file = $(droparea).parent().find('.file-input');
 
                 $(droparea).on('click', function(e){
+                    // sanitize settings
+                    types = self.options.accept.replace(/;/g, ',');
+                    types = types.replace(/\*./g, '.');
+
+                    // set accepted file types
+                    $(file).attr('accept', types);
+
+                    // trigger file click
                     file.click();
                     e.stopPropagation();
                     e.preventDefault();
@@ -43,6 +52,24 @@
                 $(file).on('change', function(e){
                     var length = e.target.files.length;
                     if (length) {
+
+                        // sanitize settings
+                        var accept = self.options.accept;
+                        if (accept.charAt(accept.length-1) == ';')
+                            accept = accept.substring(0, accept.length-1);
+                        types = accept.replace(/;/g, ',');
+                        types = types.replace(/\*./g, '.');
+                        types = types.split(/,/);
+
+                        var name = e.target.files[0].name;
+                        var ext  = name.substring(name.lastIndexOf('.'), name.length);
+
+                        // prevent upload of other than accepted file types
+                        if ($.inArray(ext, types) == -1) {
+                            bootbox.alert('Filename <b>' + name + '</b> is not allowed to upload');
+                            return false;
+                        }
+
                         var form_data = new FormData();
                         form_data.append($(file).attr('name'), e.target.files[0]);
                         form_data.append('data', self.options.post_data);
