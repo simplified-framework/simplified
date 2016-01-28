@@ -18,7 +18,7 @@ class FilesController extends BaseController {
         if (\Session::has('msg'))
             $errors[] = \Session::pull('msg');
 
-        $files = Files::all()->toArray();
+        $files = Files::all();
         $content = view('admin/listview.twig',
             array(
                 'listtitle' => 'Files',

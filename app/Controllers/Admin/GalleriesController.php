@@ -19,7 +19,7 @@ class GalleriesController extends BaseController {
         if (\Session::has('msg'))
             $errors[] = \Session::pull('msg');
 
-        $categories = Galleries::all()->toArray();
+        $categories = Galleries::all();
         $content = view('admin/listview.twig',
             array(
                 'listtitle' => 'Galleries',

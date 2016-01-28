@@ -42,7 +42,7 @@
         <a href="#" class="btn btn-default droparea">
             Drag and drop a file here or click!
         </a>
-        <input type="file" name="file" class="file-input" accept="image/*" style="display: none;" >
+        <input type="file" name="file" class="file-input" style="display: none;" >
     </div>
 </div>
 <div class="form-row">
@@ -89,6 +89,7 @@
         simplifiedUploader.option({
             post_data: {'gallery_id' : '{{ gallery.id }}'},
             url : "{{ route('galleries.uploadImage',{'id':gallery.id}) }}",
+            accept: '*.png;*.jpg;*.jpeg;*.gif;',
             success: function(responseData) {
                 var json = $.parseJSON(responseData);
                 GalleryItems.push(
@@ -105,8 +106,6 @@
                 var item  = GalleryItems()[index];
                 $('.gallery-placeholder').html('<div class="image"></div>');
                 $('.gallery-placeholder .image').css('background-image', 'url('+item.thumbnail+')');
-                //$('gallery-placeholder').html(clone);
-
             }
         });
     });
