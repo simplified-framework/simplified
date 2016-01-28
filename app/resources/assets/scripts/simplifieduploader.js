@@ -43,6 +43,9 @@
                     // set accepted file types
                     $(file).attr('accept', types);
 
+                    // TODO take option from settings
+                    //$(file).attr('multiple', true);
+
                     // trigger file click
                     file.click();
                     e.stopPropagation();
@@ -73,14 +76,14 @@
                         var form_data = new FormData();
                         form_data.append($(file).attr('name'), e.target.files[0]);
                         form_data.append('data', self.options.post_data);
-                        self.uploadFile(form_data);
+                        self.uploadFile(form_data, file);
                     }
                 });
             });
         });
     };
 
-    SimplifiedUploader.prototype.uploadFile = function(form_data) {
+    SimplifiedUploader.prototype.uploadFile = function(form_data, file) {
         var self = this;
         $.ajax({
             url: self.options.url,  //Server script to process data
@@ -103,10 +106,12 @@
 
             //Ajax events
             success: function(responseData){
+                $(file).val('');
                 self.options.success(responseData);
             },
 
             error: function(e){
+                $(file).val('');
                 self.options.error(e);
             },
 
