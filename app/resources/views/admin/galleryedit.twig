@@ -48,7 +48,7 @@
 <div class="form-row">
     <label class="row-label">Images</label>
     <div class="content-message" style="display: none;"><i>There are no uploaded images.</i></div>
-    <ul id="images" data-bind="foreach: GalleryItems">
+    <ul id="images" data-bind="sortable: {foreach: GalleryItems, options: {animation: 150}}">
         <li data-bind="attr: {id:'item-'+id, 'data-id':id,'data-index':$index}, registerItem: true" class="item">
             <a href="#" class="overflow" data-toggle="dropdown">
                 <i class="glyphicon glyphicon-option-vertical icon-black"></i>
@@ -98,6 +98,7 @@
             }
         });
 
+        /*
         $('#images').sortable({
             placeholder: 'gallery-placeholder',
             revert: 'invalid',
@@ -108,6 +109,7 @@
                 $('.gallery-placeholder .image').css('background-image', 'url('+item.thumbnail+')');
             }
         });
+        */
     });
 
 </script>

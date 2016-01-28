@@ -17,6 +17,7 @@
 		"lightbox2":"v2.8.2",
 		"jquery.transit":"rstacruz/jquery.transit",
 		"knockoutjs":"3.x",
-		"jquery-form":"malsup/form"
+		"jquery-form":"malsup/form",
+		"sortable":"RubaXa/Sortable"
 	}
 }
