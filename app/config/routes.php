@@ -59,3 +59,7 @@ Route::post('/admin/galleries/uploadImage/{id?}', ['as' => 'galleries.uploadImag
 Route::delete('/admin/galleries/deleteImage/{id?}', ['as' => 'galleries.deleteImage', 'uses' => 'Admin\GalleriesController@deleteImage'])->conditions('id', '[0-9]+');
 Route::get('/admin/galleries/editImage/{id?}', ['as' => 'galleries.editImage', 'uses' => 'Admin\GalleriesController@editImage'])->conditions('id', '[0-9]+');
 Route::post('/admin/galleries/updateImage/{id?}', ['as' => 'galleries.updateImage', 'uses' => 'Admin\GalleriesController@updateImage'])->conditions('id', '[0-9]+');
+
+// Admin files interface
+Route::get('/admin/files', 'Admin\FilesController@index');
+Route::get('/admin/files/create', 'Admin\FilesController@create');

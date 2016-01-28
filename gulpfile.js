@@ -14,6 +14,7 @@ build(function(mix) {
 	var transitpath = 'vendor/jquery.transit';
 	var lightboxpath = 'vendor/lightbox2';
 	var knockoutpath = 'vendor/knockoutjs';
+	var jformpath = 'vendor/jquery-form';
 	
 	mix.sass('scss/*')
 		.copy(jqueryPath + '/jquery.min.js', 'public/scripts')
@@ -34,6 +35,7 @@ build(function(mix) {
 		.copy(lightboxpath + '/dist/images', 'public/images')
 		.copy(lightboxpath + '/dist/js/lightbox.min.js', 'public/scripts')
 		.copy(knockoutpath + '/dist/knockout.js', 'public/scripts')
+		.copy(jformpath + '/jquery.form.js', 'public/scripts')
 		.copy('scripts', 'public/scripts')
 		.copy('images', 'public/images')
 });

@@ -15,6 +15,7 @@
 		"google-open-sans":"1.0.x",
 		"lightbox2":"v2.8.2",
 		"jquery.transit":"rstacruz/jquery.transit",
-		"knockoutjs":"3.x"
+		"knockoutjs":"3.x",
+		"jquery-form":"malsup/form"
 	}
 }

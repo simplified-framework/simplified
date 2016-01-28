@@ -434,3 +434,23 @@ ul.tagit li.tagit-choice a:hover .ui-icon {
 	height: 40px;
 	line-height: 40px;
 }
+
+.gallery-placeholder {
+	width: 200px;
+	height: 200px;
+	margin: 2px;
+	border: 1px dotted #aaa;
+	background-color: rgba(255,255,255,.35);
+	display: inline-block;
+}
+
+.gallery-placeholder .image {
+	display: block;
+	width: 140px;
+	height: 140px;
+	margin: 40px 30px 30px 30px;
+	box-shadow: 2px 2px 8px 0px #222;
+	background-position: center;
+	background-size: contain;
+	opacity: .5;
+}

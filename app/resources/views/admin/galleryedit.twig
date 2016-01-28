@@ -49,7 +49,7 @@
     <label class="row-label">Images</label>
     <div class="content-message" style="display: none;"><i>There are no uploaded images.</i></div>
     <ul id="images" data-bind="foreach: GalleryItems">
-        <li data-bind="attr: {id:'item-'+id, 'data-id':id}, registerItem: true" class="item">
+        <li data-bind="attr: {id:'item-'+id, 'data-id':id,'data-index':$index}, registerItem: true" class="item">
             <a href="#" class="overflow" data-toggle="dropdown">
                 <i class="glyphicon glyphicon-option-vertical icon-black"></i>
             </a>
@@ -65,7 +65,10 @@
             <a class="image" data-title="my image" rel="lightbox[album]" data-lightbox="gallery" data-bind="attr: {href:imageUrl}, style: {'backgroundImage': 'url('+thumbnail+')'}"></a>
         </li>
     </ul>
-    <script type="text/javascript">
+</div>
+
+<script type="text/javascript" >
+    $(document).ready(function(){
         {% if attribute(gallery, 'images').count() == 0 %}
         $('.content-message').show();
         {% endif %}
@@ -77,11 +80,7 @@
 
         var model = { items : GalleryItems };
         ko.applyBindings(model);
-    </script>
-</div>
 
-<script type="text/javascript" >
-    $(document).ready(function(){
         lightbox.option({
             'resizeDuration': 200,
             'wrapAround': true
@@ -95,6 +94,19 @@
                 GalleryItems.push(
                     new GalleryItem(json.id, json.thumbUrl, json.imageUrl)
                 );
+            }
+        });
+
+        $('#images').sortable({
+            placeholder: 'gallery-placeholder',
+            revert: 'invalid',
+            start: function(event, ui) {
+                var index = $(ui.item).attr('data-index');
+                var item  = GalleryItems()[index];
+                $('.gallery-placeholder').html('<div class="image"></div>');
+                $('.gallery-placeholder .image').css('background-image', 'url('+item.thumbnail+')');
+                //$('gallery-placeholder').html(clone);
+
             }
         });
     });
