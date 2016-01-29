@@ -16,6 +16,7 @@ build(function(mix) {
 	var lightboxpath = 'vendor/lightbox2';
 	var knockoutpath = 'vendor/knockoutjs';
 	var jformpath = 'vendor/jquery-form';
+	var sortablepath = 'vendor/sortable';
 	
 	mix.sass('scss/*')
 		.copy(jqueryPath + '/jquery.min.js', 'public/scripts')
@@ -38,6 +39,8 @@ build(function(mix) {
 		.copy(lightboxpath + '/dist/js/lightbox.min.js', 'public/scripts')
 		.copy(knockoutpath + '/dist/knockout.js', 'public/scripts')
 		.copy(jformpath + '/jquery.form.js', 'public/scripts')
+		.copy(sortablepath + '/Sortable.min.js', 'public/scripts')
+		.copy(sortablepath + '/knockout-sortable.js', 'public/scripts')
 		.copy('scripts', 'public/scripts')
 		.copy('images', 'public/images')
 });
