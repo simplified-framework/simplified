@@ -39,7 +39,9 @@
                 $(droparea).on('click', function(e){
                     // sanitize settings
                     types = self.options.accept.replace(/;/g, ',');
-                    types = types.replace(/\*./g, '.');
+                    if (types != "*.*") {
+                        types = types.replace(/\*./g, '.');
+                    }
 
                     // set accepted file types
                     $(file).attr('accept', types);
@@ -59,17 +61,22 @@
 
                         // sanitize settings
                         var accept = self.options.accept;
-                        if (accept.charAt(accept.length-1) == ';')
-                            accept = accept.substring(0, accept.length-1);
-                        types = accept.replace(/;/g, ',');
-                        types = types.replace(/\*./g, '.');
-                        types = types.split(/,/);
+                        var types;
+                        if (accept != "*.*") {
+                            if (accept.charAt(accept.length-1) == ';')
+                                accept = accept.substring(0, accept.length-1);
+                            types = accept.replace(/;/g, ',');
+                            types = types.replace(/\*./g, '.');
+                            types = types.split(/,/);
+                        } else {
+                            types = accept;
+                        }
 
                         var name = e.target.files[0].name;
                         var ext  = name.substring(name.lastIndexOf('.'), name.length);
 
                         // prevent upload of other than accepted file types
-                        if ($.inArray(ext, types) == -1 && accept != '*.*') {
+                        if (accept != '*.*' && $.inArray(ext, types) == -1) {
                             $(file).val('');
                             bootbox.alert('Filename <b>' + name + '</b> is not allowed to upload');
                             return false;
