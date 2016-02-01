@@ -6,7 +6,7 @@
 	{% endif %}
 	<div class="clearfix"></div>
 </div>
-{% if items %}
+{% if items != null and items|length > 0%}
 <table cellspacing="0">
 <tr>
 {% for head in headers %}

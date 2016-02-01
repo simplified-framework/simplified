@@ -88,7 +88,7 @@ function submitform(frm) {
 		{% endif %}
 		{{ content | raw }}
 	</div>
-	{% if buttons %}
+	{% if buttons != null%}
 	<div id="buttonbar">
 		<ul>
 			{% for btn in buttons %}

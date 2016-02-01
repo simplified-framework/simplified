@@ -21,6 +21,7 @@
     }
 
     SimplifiedUploader.defaults = {
+        configured: false,
         post_data: null,
         url : '/path/to/server',
         accept: '*.*',
@@ -68,8 +69,15 @@
                         var ext  = name.substring(name.lastIndexOf('.'), name.length);
 
                         // prevent upload of other than accepted file types
-                        if ($.inArray(ext, types) == -1) {
+                        if ($.inArray(ext, types) == -1 && accept != '*.*') {
+                            $(file).val('');
                             bootbox.alert('Filename <b>' + name + '</b> is not allowed to upload');
+                            return false;
+                        }
+
+                        if (self.options.configured == false) {
+                            $(file).val('');
+                            bootbox.alert('Error: Uploader is not configured.');
                             return false;
                         }
 
@@ -128,6 +136,8 @@
 
     SimplifiedUploader.prototype.option = function(options) {
         $.extend(this.options, options);
+        if (this.options.url != '/path/to/server')
+            this.options.configured = true;
     };
 
     return new SimplifiedUploader();

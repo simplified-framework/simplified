@@ -63,3 +63,5 @@ Route::post('/admin/galleries/updateImage/{id?}', ['as' => 'galleries.updateImag
 // Admin files interface
 Route::get('/admin/files', 'Admin\FilesController@index');
 Route::get('/admin/files/create', 'Admin\FilesController@create');
+Route::post('/admin/files/upload', ['as' => 'files.upload', 'uses' => 'Admin\FilesController@upload']);
+Route::get('/admin/files/remove/{id}', 'Admin\FilesController@remove')->conditions('id', '[0-9]+');

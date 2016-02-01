@@ -166,7 +166,11 @@ class GalleriesController extends BaseController {
             }
             else {
                 $slugify = new Slugify();
-                $filename = $slugify->slugify($file->getClientFilename());
+                $info = new \SplFileInfo($file->getClientFilename());
+                $ext = pathinfo($file->getClientFilename(),PATHINFO_EXTENSION);
+                $basename = basename($file->getClientFilename(), $ext);
+
+                $filename = $slugify->slugify($basename) . ($ext ? "." : "") . $ext;
                 $targetImage    = public_path() . "/uploads/".$filename;
                 $targetThumb    = public_path() . "/uploads/thumb-".$filename;
                 $targetImageUrl = public_url() . "uploads/".$filename;

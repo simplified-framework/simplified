@@ -1,0 +1,22 @@
+{{ form_open({'class':'form','id':'FILE_FRM','action':route('files.upload',{'id':file.id})}) }}
+{{ form_token() }}
+<div class="form-row">
+    <label class="row-label">Upload File</label>
+    <div class="simplified-uploader">
+        <a href="#" class="btn btn-default droparea">
+            Drag and drop a file here or click!{% if displaysize %}<br>(Maximum upload size: {{ displaysize }}{{ unit }}){% endif %}
+        </a>
+        <input type="file" name="file" class="file-input" style="display: none;" >
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        simplifiedUploader.option({
+            url : "{{ route('files.upload') }}",
+            success: function(response) {
+                window.location.replace('{{ backurl }}');
+            }
+        });
+    });
+</script>
+{{ form_close() }}
